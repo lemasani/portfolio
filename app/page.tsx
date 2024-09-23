@@ -4,9 +4,11 @@ import SplashScreen from './../components/SplashScreen'
 import { getBlueDottedPatternStyle } from '@/lib/styles'
 import { Button } from '@/components/ui/button'
 import { FaFileAlt } from 'react-icons/fa'
-import {  motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import ProfileImage from './../public/profile.jpeg'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
+import Skills from '@/components/Skills'
 
 const nameVariants = {
   initial: { opacity: 0, y: -50 },
@@ -49,14 +51,12 @@ export default function Home() {
                   initial={nameVariants.initial}
                   animate={nameVariants.animate}
                   transition={nameVariants.transition} className='text-primary text-4xl font-bold'>Brian Lemasani</motion.h1>
-
                 <motion.div
                   initial={imageVariant.initial}
                   animate={imageVariant.animate}
                   transition={imageVariant.transition} className="image-container w-60 h-60 rounded-full flex items-center justify-center z-1">
                   <Image src={ProfileImage} alt='Brian Lemasani' className='w-50 h-50 rounded-full' />
                 </motion.div>
-
                 <motion.div
                   initial={fadeInVariants.initial}
                   animate={fadeInVariants.animate}
@@ -71,6 +71,36 @@ export default function Home() {
                     My Resume
                   </Button>
                 </motion.div>
+              </div>
+            </div>
+          </section>
+          <section className="featured">
+            <div className="container mx-auto">
+              <h2 className="text-2xl font-bold text-center mb-4 text-primary">Featured Projects</h2>
+              <div className="projects grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Project Title</CardTitle>
+                    <CardDescription>Project description</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Image src={ProfileImage} alt="Project" />
+                  </CardContent>
+                  <CardFooter>
+                    <Button>View Project</Button>
+                  </CardFooter>
+                </Card>
+               
+              </div>
+            </div>
+          </section>
+
+          <section className="skills mt-2 relative" >
+                <div className="absolute inset-0" style={getBlueDottedPatternStyle()}></div>
+            <div className="container mx-auto ">
+              <h2 className="text-2xl font-bold text-center mb-4 text-primary">Skills</h2>
+              <div className="skills">
+               <Skills />
               </div>
             </div>
           </section>
