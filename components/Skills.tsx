@@ -4,11 +4,10 @@ import { Badge } from '@/components/ui/badge'
 
 export default function Skills() {
   return (
-    <div className="skills-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
+    <div className="skills-container flex flex-row gap-5">
       {skills.map((skill) => (
-        <Badge key={skill.name} className="skill-item flex items-center justify-center gap-2 p-2 w-50">
-          <skill.icon className="text-2xl" />
-          <span>{skill.name}</span>
+        <Badge key={skill.name} title={skill.name} className="flex items-center justify-center gap-2 p-2 w-50">
+          <skill.icon className="text-4xl" style={{ color: skill.color }} />
         </Badge>
       ))}
     </div>
