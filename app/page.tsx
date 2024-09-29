@@ -102,9 +102,9 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="services mt-2">
+          <section className="services mt-2 bg-primary p-3">
             <div className="container mx-auto">
-              <h2 className="text-2xl font-bold text-center mb-4 text-primary">Services</h2>
+              <h2 className="text-2xl font-bold text-center mb-4 text-white">Services</h2>
               <div className="mx-auto px-4">
                 <Services />
               </div>
