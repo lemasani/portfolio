@@ -9,6 +9,7 @@ import Image from 'next/image'
 import ProfileImage from './../public/profile.jpeg'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
 import Skills from '@/components/Skills'
+import Services from '@/components/Services'
 
 const nameVariants = {
   initial: { opacity: 0, y: -50 },
@@ -42,8 +43,8 @@ export default function Home() {
       ) : (
         <main className="min-h-screen">
           <section className="hero h-screen">
-            <div className="absolute inset-0" style={getBlueDottedPatternStyle()}></div>
-            <div className="container">
+            {/* <div className="absolute inset-0 z-0" style={getBlueDottedPatternStyle()}></div> */}
+            <div className="container z-10">
               <div className="welcome flex flex-col justify-center gap-1 items-center ">
                 <motion.span initial={{ y: -100 }}
                   animate={{ y: 0 }} className='font-light italic text-xl'>Hello, Its me</motion.span>
@@ -71,6 +72,12 @@ export default function Home() {
                     My Resume
                   </Button>
                 </motion.div>
+
+                <div className="skills mt-5 p-2 overflow-x-auto">
+                  <div className="flex flex-row">
+                    <Skills />
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -95,15 +102,15 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="skills mt-2 relative" >
-                <div className="absolute inset-0" style={getBlueDottedPatternStyle()}></div>
-            <div className="container mx-auto ">
-              <h2 className="text-2xl font-bold text-center mb-4 text-primary">Skills</h2>
-              <div className="skills">
-               <Skills />
+          <section className="services mt-2 bg-primary p-3">
+            <div className="container mx-auto">
+              <h2 className="text-2xl font-bold text-center mb-4 text-white">Services</h2>
+              <div className="mx-auto px-4">
+                <Services />
               </div>
             </div>
           </section>
+
         </main>
       )}
     </>
