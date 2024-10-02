@@ -73,11 +73,14 @@ export default function Home() {
                   </Button>
                 </motion.div>
 
-                <div className="skills mt-5 p-2 overflow-x-auto">
-                  <div className="flex flex-row">
-                    <Skills />
+                <div className="skills container mx-auto mt-5 p-2 overflow-hidden">
+                  <div className="skill-wrapper overflow-hidden flex flex-row space-x-4 mx-auto my-8 max-w-screen-sm">
+                    <Skills /> {/* Original skills list */}
+                    <Skills /> {/* Duplicated list for seamless scrolling */}
                   </div>
                 </div>
+
+
               </div>
             </div>
           </section>
