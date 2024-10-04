@@ -42,7 +42,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className='min-h-20 flex items-center justify-between w-full mx-20 rounded-md px-10'>
+      <nav className='min-h-20 bg-transparent flex items-center justify-between w-full mx-20 rounded-md px-10'>
         <div className="logo">
           <Link href="/">
             <Image src={logo} alt='Logo' className='w-10' />
