@@ -24,7 +24,7 @@ export default function RootLayout({
         <link rel="icon" href="logo.svg"   type="image/svg+xml"/>
       </Head>
       <body className={inter.className}>
-        <header className='relative top-0  p-3 flex flex-col items-center justify-center'>
+        <header className='relative top-0 bg-background  p-3 flex flex-col items-center justify-center'>
           <Navbar />
         </header>
         {children}

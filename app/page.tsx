@@ -11,6 +11,10 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import Skills from '@/components/Skills'
 import Services from '@/components/Services'
 
+import SectionBackground from '@/components/sectionBackground'
+
+import herosvg from '@/components/svg/hero.svg'
+
 const nameVariants = {
   initial: { opacity: 0, y: -50 },
   animate: { opacity: 1, y: 0 },
@@ -42,7 +46,12 @@ export default function Home() {
         <SplashScreen onFinish={handleSplashFinish} />
       ) : (
         <main className="min-h-screen">
-          <section className="hero h-screen">
+          <section className="hero h-screen relative">
+          <Image
+          src={herosvg}
+          alt="Svg"
+          className="absolute top-0 right-0 w-full h-full object-cover -z-10 opacity-30"
+          />
             {/* <div className="absolute inset-0 z-0" style={getBlueDottedPatternStyle()}></div> */}
             <div className="container z-10">
               <div className="welcome flex flex-col justify-center gap-1 items-center ">
@@ -84,7 +93,7 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <section className="featured">
+          <section className="featured mt-20">
             <div className="container mx-auto">
               <h2 className="text-2xl font-bold text-center mb-4 text-primary">Featured Projects</h2>
               <div className="projects grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -105,14 +114,17 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="services mt-2 bg-primary p-3">
-            <div className="container mx-auto">
-              <h2 className="text-2xl font-bold text-center mb-4 text-white">Services</h2>
+         
+          <SectionBackground>
+            <div className="container mx-auto z-10">
+              <h2 className="text-2xl text-center mb-4 text-white font-light italic">Services</h2>
               <div className="mx-auto px-4">
                 <Services />
               </div>
             </div>
-          </section>
+          </SectionBackground>
+           
+          
 
         </main>
       )}
