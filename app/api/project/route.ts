@@ -6,7 +6,7 @@ export async function GET() {
   // Return a JSON response
   return NextResponse.json({ message: "GET request to /api/project" });
 
-  // Alternatively, using the native Response object:
+  // Alternatively, using the native Respone object:
   /*
   return new Response(JSON.stringify({ message: "GET request to /api/project" }), {
     status: 200,
