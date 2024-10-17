@@ -3,8 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Head from 'next/head'
 
-import Navbar from './../components/Navbar'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -24,11 +22,9 @@ export default function RootLayout({
         <link rel="icon" href="logo.svg"   type="image/svg+xml"/>
       </Head>
       <body className={inter.className}>
-        <header className='relative top-0 bg-background  p-3 flex flex-col items-center justify-center'>
-          <Navbar />
-        </header>
+        
         {children}
-        <footer className='container relative bottom-0 h-100 flex justify-around items-center p-2 text-white bg-primary '>
+        {/* <footer className='container relative bottom-0 h-100 flex justify-around items-center p-2 text-white bg-primary '>
           <p>© {new Date().getFullYear()} Lemasani</p>
 
           <div className="social-links flex justify-center items-center gap-5">
@@ -42,7 +38,7 @@ export default function RootLayout({
               GitHub
             </a>
           </div>
-        </footer>
+        </footer> */}
       </body>
     </html>
   )

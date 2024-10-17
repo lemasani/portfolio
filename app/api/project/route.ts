@@ -1,32 +1,60 @@
-import { NextRequest, NextResponse } from 'next/server';
+// app/api/projects/route.ts
 
-export async function GET() {
-  // You can perform any async operations here, such as fetching data from a database
+import { NextResponse } from 'next/server'
+import  prisma  from '@/lib/prisma'
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from '../auth/[...nextauth]/options'
 
-  // Return a JSON response
-  return NextResponse.json({ message: "GET request to /api/project" });
-
-  // Alternatively, using the native Response object:
-  /*
-  return new Response(JSON.stringify({ message: "GET request to /api/project" }), {
-    status: 200,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  */
+type ProjectData = {
+  projectName: string
+  description: string
+  githubUrl: string
+  imageUrl: string
+  livePreviewUrl?: string
 }
 
-interface postData {
-  name: string
+export async function POST(request: Request) {
+  try {
+    // Authenticate the user
+    const session = await getServerSession(authOptions)
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    // Parse the incoming JSON data
+    const data: ProjectData = await request.json()
+
+    // Validate the data
+    if (!data.projectName || !data.description || !data.githubUrl || !data.imageUrl) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    // Insert the new project into the database
+    const newProject = await prisma.project.create({
+      data: {
+        title: data.projectName,
+        description: data.description,
+        githubUrl: data.githubUrl,
+        imageUrl: data.imageUrl,
+      },
+    })
+
+    return NextResponse.json({ message: 'Project created successfully', data: newProject }, { status: 201 })
+  } catch (error: any) {
+    console.error('API Route Error:', error)
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+  }
 }
 
-export async function POST(req: Request){
-  const project: postData = await req.json()
+export async function GET(request:Request) {
+  // Authenticate the user
+  const session = await getServerSession(authOptions)
+  if (!session) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
 
-  return NextResponse.json({
-    message: "body received succesfully",
-    status: 201,
-    data: project
-  })
+  // Fetch all projects from the database
+  const projects = await prisma.project.findMany()
+
+  return NextResponse.json({status: 200, data: projects})
 }
