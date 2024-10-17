@@ -1,76 +1,116 @@
 // components/createProjectForm.tsx
-import React from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
+import React, { useState, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { CldUploadButton } from 'next-cloudinary'
+import fetchRepositories from '@/lib/fetchRepositories'
 
-type ProjectFormValues = {
-  name: string;
-  description: string;
-  githubUrl: string;
-  imageUrl: string;
-  livePreviewUrl: string;
-};
+const schema = z.object({
+  projectName: z.string().nonempty('Project name is required'),
+  description: z.string().nonempty('Description is required'),
+  githubUrl: z.string().url('Invalid URL'),
+  imageUrl: z.string().url('Invalid URL'),
+})
 
 type CreateProjectFormProps = {
-  onSubmit: (values: ProjectFormValues, formikHelpers: any) => void;
-};
+  githubUsername: string
+  onSubmit: (formData: any) => void
+}
 
-const CreateProjectForm: React.FC<CreateProjectFormProps> = ({ onSubmit }) => {
-  const initialValues: ProjectFormValues = {
-    name: '',
-    description: '',
-    githubUrl: '',
-    imageUrl: '',
-    livePreviewUrl: '',
-  }
+type Repo = {
+    name: string
+    description: string
+    html_url: string
+}
 
-  const validationSchema = Yup.object({
-    name: Yup.string().required('Required'),
-    description: Yup.string().required('Required'),
-    githubUrl: Yup.string().url('Invalid URL').required('Required'),
-    imageUrl: Yup.string().url('Invalid URL').required('Required'),
-    livePreviewUrl: Yup.string().url('Invalid URL').required('Required'),
+
+const CreateProjectForm: React.FC<CreateProjectFormProps> = ({ githubUsername, onSubmit }) => {
+  const [repos, setRepos] = useState<Repo[]>([])
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+    resolver: zodResolver(schema),
   })
 
+  useEffect(() => {
+    const fetchRepos = async () => {
+      try {
+        const repositories = await fetchRepositories(githubUsername)
+        setRepos(repositories)
+        console.log('Repositories:', repositories)
+      } catch (error) {
+        console.error('Error fetching repositories:', error)
+      }
+    }
+    fetchRepos()
+  }, [githubUsername])
+
+  const handleRepoChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const repo = repos.find((r: any) => r.name === event.target.value)
+    if (repo) {
+      setValue('projectName', repo.name)
+      setValue('description', repo.description)
+      setValue('githubUrl', repo.html_url)
+    }
+  }
+
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {({ isSubmitting }) => (
-        <Form className="space-y-4 w-[1/2]">
-          <div className="flex flex-col">
-            <label htmlFor="name" className="mb-1 font-semibold">Name</label>
-            <Field type="text" name="name" className="p-2 border rounded" />
-            <ErrorMessage name="name" component="div" className="text-red-500 text-sm" />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="description" className="mb-1 font-semibold">Description</label>
-            <Field type="text" name="description" className="p-2 border rounded" />
-            <ErrorMessage name="description" component="div" className="text-red-500 text-sm" />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="githubUrl" className="mb-1 font-semibold">GitHub URL</label>
-            <Field type="text" name="githubUrl" className="p-2 border rounded" />
-            <ErrorMessage name="githubUrl" component="div" className="text-red-500 text-sm" />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="imageUrl" className="mb-1 font-semibold">Image URL</label>
-            <Field type="text" name="imageUrl" className="p-2 border rounded" />
-            <ErrorMessage name="imageUrl" component="div" className="text-red-500 text-sm" />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="livePreviewUrl" className="mb-1 font-semibold">Live Preview URL</label>
-            <Field type="text" name="livePreviewUrl" className="p-2 border rounded" />
-            <ErrorMessage name="livePreviewUrl" component="div" className="text-red-500 text-sm" />
-          </div>
-          <button type="submit" disabled={isSubmitting} className="bg-blue-500 text-white px-4 py-2 rounded">
-            Submit
-          </button>
-        </Form>
-      )}
-    </Formik>
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center p-6 bg-white shadow-md rounded-md w-full max-w-lg mx-auto">
+      <h2 className="text-2xl font-bold mb-4">Create Project</h2>
+      
+      <label htmlFor="githubrepos" className="mb-2 text-lg">GitHub Repositories</label>
+      <select className="p-2 mb-4 border rounded w-full" name="githubrepos" id="githubrepos" onChange={handleRepoChange}>
+        <option value="">Select a repository</option>
+        {repos.map((repo: any) => (
+          <option key={repo.id} value={repo.name}>
+            {repo.name}
+          </option>
+        ))}
+      </select>
+
+      <label htmlFor="projectName" className="mb-2 text-lg">Project Name</label>
+      <input
+        type="text"
+        id="projectName"
+        {...register('projectName')}
+        className="p-2 mb-4 border rounded w-full"
+      />
+
+      <label htmlFor="description" className="mb-2 text-lg">Description</label>
+      <input
+        type="text"
+        id="description"
+        {...register('description')}
+        className="p-2 mb-4 border rounded w-full"
+      />
+     
+      <label htmlFor="githubUrl" className="mb-2 text-lg">GitHub URL</label>
+      <input
+        type="text"
+        id="githubUrl"
+        {...register('githubUrl')}
+        className="p-2 mb-4 border rounded w-full"
+      />
+      
+      <label htmlFor="imageUrl" className="mb-2 text-lg">Project Image</label>
+      <CldUploadButton
+        uploadPreset="projects"  // Replace with your Cloudinary preset
+        onSuccess={(result) => {
+          if (result.info) {
+            const imageUrl = result.info.secure_url
+            setValue('imageUrl', imageUrl) // Set imageUrl in form
+          }
+        }}
+      />
+      <input
+        type="text"
+        id="imageUrl"
+        {...register('imageUrl')}
+        readOnly
+        className="p-2 mb-4 border rounded w-full"
+      />
+     
+      <button type="submit" className="bg-blue-500 text-white p-2 rounded w-full hover:bg-blue-600">Create Project</button>
+    </form>
   )
 }
 

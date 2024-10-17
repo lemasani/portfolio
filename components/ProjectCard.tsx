@@ -6,10 +6,9 @@ interface ProjectCardProps {
   description: string
   githubUrl: string
   imageUrl: string
-  livePreviewUrl: string
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, githubUrl, imageUrl, livePreviewUrl }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, githubUrl, imageUrl }) => {
   return (
     <Card className="max-w-sm rounded overflow-hidden shadow-lg">
       <CardHeader className='w-full p-0'>
@@ -22,10 +21,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, githubUrl,
       <CardFooter className="pt-4 pb-2">
         <a href={githubUrl} className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer">
           GitHub
-        </a>
-        <span className="mx-2">|</span>
-        <a href={livePreviewUrl} className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer">
-          Live Preview
         </a>
       </CardFooter>
     </Card>

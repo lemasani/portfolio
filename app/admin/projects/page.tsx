@@ -1,63 +1,116 @@
+// app/admin/projects/page.tsx
 'use client'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSession } from 'next-auth/react'
 import ProjectServicesLayout from '../projectServicesLayout'
-
 import ProjectCard from '@/components/ProjectCard'
+import CreateProjectForm from '@/components/createProjectForm'
 
-const projects = [
-    {
-      name: 'Project 1',
-      description: 'Description for Project 1',
-      githubUrl: 'https://github.com/username/project1',
-      imageUrl: 'https://via.placeholder.com/150',
-      livePreviewUrl: 'https://example.com/project1',
-    },
-    {
-      name: 'Project 2',
-      description: 'Description for Project 2',
-      githubUrl: 'https://github.com/username/project2',
-      imageUrl: 'https://via.placeholder.com/150',
-      livePreviewUrl: 'https://example.com/project2',
-    },
-    // Add more projects as needed
-  ]
-
-
-const handleButtonClick = () => {
-  console.log('Button clicked')
+type ProjectFormValues = {
+  name: string
+  description: string
+  githubUrl: string
+  imageUrl: string
+  livePreviewUrl: string
 }
 
-const ProjectPage = () => {
+interface Project  {
+  id: number
+  title: string
+  description: string
+  githubUrl: string
+  imageUrl: string
+}
 
-    
+
+type ProjectPageProps = {
+  githubUsername: string
+}
+
+const ProjectPage: React.FC<ProjectPageProps> = ({ githubUsername }) => {
+  const session = useSession()
+  const [showForm, setShowForm] = useState(false)
+  const [projects, setProjects] = useState<Project[]>([])
+
+  const handleButtonClick = () => {
+    setShowForm((prevShowForm) => !prevShowForm)
+  }
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/api/project')
+
+        console.log('project',response)
+        const data = await response.json()
+        setProjects(data.data)
+        console.log('projects:',data)
+        
+      } catch (error) {
+        console.error('Error fetching projects', error)
+      }
+    }
+    fetchProjects()
+  }, [])
+
+ const createProject = async (formData: ProjectFormValues) => {
+
+  
+
+    // Send the form data to the API
+    const response = await fetch('/api/project', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+
+    if (response.ok) {
+      console.log('Project created successfully')
+      setShowForm(false)
+    } else {
+      console.error('Failed to create project:', response.statusText)
+    }
+ }
+
+
+
+ 
+
   return (
-
     <>
-        <ProjectServicesLayout
+      <ProjectServicesLayout
         sectionName="Projects"
         button={{
-            className: 'bg-blue-500 text-white px-4 py-2 rounded',
-            text: 'Add Project',
-            onClick: handleButtonClick,
+          className: 'bg-blue-500 text-white px-4 py-2 rounded',
+          text: 'Add Project',
+          onClick: handleButtonClick,
         }}
-       
-        >
-        
-        {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              name={project.name}
-              description={project.description}
-              githubUrl={project.githubUrl}
-              imageUrl={project.imageUrl}
-              livePreviewUrl={project.livePreviewUrl}
-            />
-          ))}
-        
-        </ProjectServicesLayout>
+      >
 
+        {showForm ? (
+                <div className="createProject-container  w-full top-10">
+                <CreateProjectForm githubUsername={session.data?.user.name || 'admin'} onSubmit={createProject} />
+                </div>
+            ): (
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4'>
+                {projects.map((project) => (
+                  <ProjectCard
+                    key={project.id}
+                    name={project.title}
+                    description={project.description}
+                    githubUrl={project.githubUrl}
+                    imageUrl={project.imageUrl}
+                  />
+                ))}
+                
+                </div>
+            )}
+      </ProjectServicesLayout>
+
+      
     </>
-
   )
 }
 

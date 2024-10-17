@@ -9,7 +9,7 @@ interface ButtonProps {
 interface ProjectServicesLayoutProps {
   sectionName: string
   button?: ButtonProps
-  children: React.ReactNode[]
+  children: React.ReactNode
 }
 
 const ProjectServicesLayout: React.FC<ProjectServicesLayoutProps> = ({ sectionName, button, children }) => {
@@ -21,7 +21,7 @@ const ProjectServicesLayout: React.FC<ProjectServicesLayoutProps> = ({ sectionNa
           {button?.text}
         </button>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      <div>
         {children}
       </div>
     </section>
