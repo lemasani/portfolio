@@ -10,7 +10,6 @@ type ProjectData = {
   description: string
   githubUrl: string
   imageUrl: string
-  livePreviewUrl?: string
 }
 
 export async function POST(request: Request) {
