@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { CldUploadButton } from 'next-cloudinary'
+import { CldUploadButton, CloudinaryUploadWidgetInfo, CloudinaryUploadWidgetResults } from 'next-cloudinary'
 import fetchRepositories from '@/lib/fetchRepositories'
 
 const schema = z.object({
@@ -93,9 +93,9 @@ const CreateProjectForm: React.FC<CreateProjectFormProps> = ({ githubUsername, o
       
       <label htmlFor="imageUrl" className="mb-2 text-lg">Project Image</label>
       <CldUploadButton
-        uploadPreset="projects"  // Replace with your Cloudinary preset
-        onSuccess={(result) => {
-          if (result.info) {
+        uploadPreset="projects" 
+        onSuccess={(result: CloudinaryUploadWidgetResults) => {
+          if (result.info && typeof result.info !== 'string') {
             const imageUrl = result.info.secure_url
             setValue('imageUrl', imageUrl) // Set imageUrl in form
           }

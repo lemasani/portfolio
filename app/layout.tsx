@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Head from 'next/head'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Lemasani',
@@ -21,7 +19,7 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="logo.svg"   type="image/svg+xml"/>
       </Head>
-      <body className={inter.className}>
+      <body>
         
         {children}
         {/* <footer className='container relative bottom-0 h-100 flex justify-around items-center p-2 text-white bg-primary '>
