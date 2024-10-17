@@ -23,11 +23,7 @@ interface Project  {
 }
 
 
-type ProjectPageProps = {
-  githubUsername: string
-}
-
-const ProjectPage: React.FC<ProjectPageProps> = ({ githubUsername }) => {
+const ProjectPage = () => {
   const session = useSession()
   const [showForm, setShowForm] = useState(false)
   const [projects, setProjects] = useState<Project[]>([])
@@ -73,10 +69,6 @@ const ProjectPage: React.FC<ProjectPageProps> = ({ githubUsername }) => {
       console.error('Failed to create project:', response.statusText)
     }
  }
-
-
-
- 
 
   return (
     <>
