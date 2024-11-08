@@ -59,7 +59,7 @@ export default function Home() {
             className="absolute top-0 right-0 w-full h-full object-cover -z-10 opacity-30"
             />
               {/* <div className="absolute inset-0 z-0" style={getBlueDottedPatternStyle()}></div> */}
-              <div className="container z-10">
+              <div className="container z-10 mx-auto">
                 <div className="welcome flex flex-col justify-center gap-1 items-center ">
                   <motion.span initial={{ y: -100 }}
                     animate={{ y: 0 }} className='font-light italic text-xl'>Hello, Its me</motion.span>
