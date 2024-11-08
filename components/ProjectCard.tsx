@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
+import Image from 'next/image'
 
 interface ProjectCardProps {
   name: string
@@ -12,7 +13,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, githubUrl,
   return (
     <Card className="max-w-sm rounded overflow-hidden shadow-lg">
       <CardHeader className='w-full p-0'>
-        <img className="w-full" src={imageUrl} alt={name} />
+        <Image className="w-full" src={imageUrl} alt={name} />
       </CardHeader>
       <CardContent>
         <div className="font-bold text-xl mb-2">{name}</div>
