@@ -6,6 +6,8 @@ import React from 'react';
 import { fadeInVariants, imageVariant, nameVariants } from '@/lib/Animations';
 import Link from 'next/link';
 import logo from '@/public/logo.png';
+import pattern from '@/public/pattern.svg';
+
 
 export default function Hero() {
   return (
@@ -15,7 +17,28 @@ export default function Hero() {
           <Image src={logo} alt="Logo" className="w-8 md:w-10" />
         </Link>
       </header>
-      <section className="hero min-h-screen relative text-white px-4 md:px-0">
+      <section className="hero min-h-screen relative text-white px-4 md:px-0 overflow-hidden">
+          {/* Animated Background Pattern */}
+          <motion.div 
+          className="absolute inset-0 opacity-50 z-10"
+          initial={{ scale: 1, rotate: 0 }}
+          animate={{ 
+            scale: [1, 1.1, 1],
+            rotate: [0, 2, -2, 0]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          <Image
+            src={pattern}
+            alt="background pattern"
+            fill
+            className="object-cover"
+          />
+        </motion.div>
         <div className="container relative z-10 mx-auto">
           <div className="welcome flex flex-col justify-center gap-2 md:gap-4 space-y-4 md:space-y-6 items-center">
             <motion.span
