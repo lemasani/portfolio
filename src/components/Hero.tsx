@@ -4,7 +4,7 @@ import Beams from './Beams.jsx'
 
 export default function Hero() {
   return (
-    <div style={{ width: '1080px', height: '1080px', position: 'relative' }}>
+    <div className='w-full' style={{ height: '1080px', position: 'relative' }}>
       <Beams
         beamWidth={2}
         beamHeight={15}
