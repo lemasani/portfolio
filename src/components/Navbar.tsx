@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from '@tanstack/react-router'
-import { Menu, X } from 'lucide-react'
+import { GithubIcon, Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
@@ -59,12 +59,11 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <a
-          href="#contact"
-          className="hidden rounded-full border border-[#27d0ab]/40 bg-[#008b6b]/20 px-5 py-2 text-xs font-semibold tracking-[0.2em] text-[#a9ffea] uppercase transition hover:border-[#27d0ab] hover:bg-[#008b6b]/35 md:block"
-        >
-          Hire Me
+        <a href="https://github.com/lemasani" target="_blank" rel="noopener noreferrer">
+          <GithubIcon className="inline-block" />
         </a>
+        
+        
 
         {/* Mobile hamburger */}
         <button
