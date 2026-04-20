@@ -8,7 +8,7 @@ export const projects: Project[] = [
       'This site. Built with TanStack Start, React 19, Tailwind CSS v4, and deployed on Cloudflare Workers. Features MDX-powered blog and 3D shader animations.',
     tags: ['React', 'TanStack Start', 'Tailwind CSS', 'Cloudflare Workers', 'Three.js'],
     githubUrl: 'https://github.com/lemasani/portfolio',
-    liveUrl: 'https://lemasani.dev',
+    liveUrl: 'https://lemasani.com',
     featured: true,
   },
   {
