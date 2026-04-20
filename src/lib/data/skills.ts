@@ -32,15 +32,17 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Docker', level: 'proficient' },
       { name: 'Vite', level: 'core' },
       { name: 'pnpm', level: 'core' },
+      { name: 'Bun', level: 'proficient' },
       { name: 'Linux', level: 'proficient' },
     ],
   },
   {
     name: 'Currently Exploring',
     skills: [
-      { name: 'Rust', level: 'familiar' },
+      { name: 'Java', level: 'familiar' },
       { name: 'WebAssembly', level: 'familiar' },
       { name: 'AI / LLM integration', level: 'familiar' },
+      { name: 'Computer Vision', level: 'familiar' },
     ],
   },
 ]
