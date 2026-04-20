@@ -43,6 +43,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'WebAssembly', level: 'familiar' },
       { name: 'AI / LLM integration', level: 'familiar' },
       { name: 'Computer Vision', level: 'familiar' },
+      { name: 'Homelabbing', level: 'proficient' },
     ],
   },
 ]
