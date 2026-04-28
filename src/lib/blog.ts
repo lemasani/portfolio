@@ -12,6 +12,12 @@ function slugFromPath(path: string): string {
   return path.replace(/^.*\/(.+)\.mdx$/, '$1')
 }
 
+function getPostModuleBySlug(slug: string): MdxModule | null {
+  const entry = Object.entries(modules).find(([path]) => slugFromPath(path) === slug)
+  if (!entry) return null
+  return entry[1]
+}
+
 function readingTime(text: string): number {
   return Math.max(1, Math.ceil(text.split(/\s+/).length / 200))
 }
@@ -27,9 +33,12 @@ export function getAllPosts(): Post[] {
     .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
 }
 
-export function getPostBySlug(slug: string): { frontmatter: PostFrontmatter; Component: ComponentType<any> } | null {
-  const entry = Object.entries(modules).find(([path]) => slugFromPath(path) === slug)
-  if (!entry) return null
-  const [, mod] = entry
-  return { frontmatter: mod.frontmatter, Component: mod.default }
+export function getPostBySlug(slug: string): { slug: string; frontmatter: PostFrontmatter } | null {
+  const mod = getPostModuleBySlug(slug)
+  if (!mod) return null
+  return { slug, frontmatter: mod.frontmatter }
+}
+
+export function getPostComponentBySlug(slug: string): ComponentType<any> | null {
+  return getPostModuleBySlug(slug)?.default ?? null
 }

@@ -3,7 +3,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { format } from 'date-fns'
 import BlogLayout from '@/components/BlogLayout'
 import { MdxComponents } from '@/components/mdx/MdxComponents'
-import { getPostBySlug } from '@/lib/blog'
+import { getPostBySlug, getPostComponentBySlug } from '@/lib/blog'
 
 export const Route = createFileRoute('/blog/$slug')({
   loader: ({ params }) => {
@@ -15,11 +15,15 @@ export const Route = createFileRoute('/blog/$slug')({
 })
 
 function BlogPost() {
-  const { frontmatter, Component } = Route.useLoaderData()
+  const { slug } = Route.useParams()
+  const { frontmatter } = Route.useLoaderData()
+  const Component = getPostComponentBySlug(slug)
+
+  if (!Component) throw notFound()
 
   return (
     <BlogLayout>
-      <article className="mx-auto max-w-2xl">
+      <article className="mx-auto max-w-5xl">
         <header className="mb-10">
           <div className="mb-4 flex flex-wrap gap-1.5">
             {frontmatter.tags.map((tag) => (
