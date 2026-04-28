@@ -1,0 +1,134 @@
+---
+title: "Superpowers: The Plugin That Teaches Your AI Agent How to Think"
+date: "2026-04-28"
+excerpt: "AI agents are great at writing code. They're bad at knowing when not to. Superpowers fixes that by installing a structured development methodology directly into your agent."
+tags: ["tooling", "claude","opencode", "ai", "productivity"]
+published: true
+---
+
+# Superpowers: The Plugin That Teaches Your AI Agent How to Think
+
+You describe a feature. The agent skips straight to code, writes 300 lines across six files, and misses half the requirements. Now you're debugging something that shouldn't have been built that way. You know the feeling.
+
+The problem isn't that the model is dumb. It's that nothing told it to slow down first.
+
+## What Superpowers is
+
+[Superpowers](https://github.com/obra/superpowers) is a plugin that installs a structured software development methodology into your AI coding agent. Not a wrapper, not a prompt template you paste in — a persistent skill framework that changes how the agent approaches every task from the first message.
+
+The workflow it enforces has six phases: brainstorm requirements before touching code, design and get your approval, break work into small planned tasks, use fresh subagents to execute each one, enforce TDD with red-green-refactor cycles, and finish with a structured review. The agent stops guessing and starts asking.
+
+It works on Claude Code and OpenCode.
+
+<svg viewBox="0 0 660 82" width="100%" style={{margin:'2rem auto',display:'block',maxWidth:'660px'}}>
+  <rect width="660" height="82" rx="12" fill="rgba(0,0,0,0.25)" stroke="rgba(255,255,255,0.06)" strokeWidth="1"/>
+  <rect x="10" y="16" width="90" height="50" rx="7" fill="rgba(39,208,171,0.07)" stroke="#27d0ab" strokeWidth="1" strokeOpacity="0.35"/>
+  <text x="55" y="34" textAnchor="middle" fill="#27d0ab" fontFamily="monospace" fontSize="8" opacity="0.7">01</text>
+  <text x="55" y="50" textAnchor="middle" fill="#ffffff" fontFamily="monospace" fontSize="9" fontWeight="600">Brainstorm</text>
+  <line x1="101" y1="41" x2="116" y2="41" stroke="#27d0ab" strokeWidth="1.2" strokeOpacity="0.45"/>
+  <polygon points="113,38 120,41 113,44" fill="#27d0ab" fillOpacity="0.45"/>
+  <rect x="120" y="16" width="90" height="50" rx="7" fill="rgba(39,208,171,0.07)" stroke="#27d0ab" strokeWidth="1" strokeOpacity="0.35"/>
+  <text x="165" y="34" textAnchor="middle" fill="#27d0ab" fontFamily="monospace" fontSize="8" opacity="0.7">02</text>
+  <text x="165" y="50" textAnchor="middle" fill="#ffffff" fontFamily="monospace" fontSize="9" fontWeight="600">Design</text>
+  <line x1="211" y1="41" x2="226" y2="41" stroke="#27d0ab" strokeWidth="1.2" strokeOpacity="0.45"/>
+  <polygon points="223,38 230,41 223,44" fill="#27d0ab" fillOpacity="0.45"/>
+  <rect x="230" y="16" width="90" height="50" rx="7" fill="rgba(39,208,171,0.07)" stroke="#27d0ab" strokeWidth="1" strokeOpacity="0.35"/>
+  <text x="275" y="34" textAnchor="middle" fill="#27d0ab" fontFamily="monospace" fontSize="8" opacity="0.7">03</text>
+  <text x="275" y="50" textAnchor="middle" fill="#ffffff" fontFamily="monospace" fontSize="9" fontWeight="600">Plan</text>
+  <line x1="321" y1="41" x2="336" y2="41" stroke="#27d0ab" strokeWidth="1.2" strokeOpacity="0.45"/>
+  <polygon points="333,38 340,41 333,44" fill="#27d0ab" fillOpacity="0.45"/>
+  <rect x="340" y="16" width="90" height="50" rx="7" fill="rgba(39,208,171,0.07)" stroke="#27d0ab" strokeWidth="1" strokeOpacity="0.35"/>
+  <text x="385" y="34" textAnchor="middle" fill="#27d0ab" fontFamily="monospace" fontSize="8" opacity="0.7">04</text>
+  <text x="385" y="50" textAnchor="middle" fill="#ffffff" fontFamily="monospace" fontSize="9" fontWeight="600">Execute</text>
+  <line x1="431" y1="41" x2="446" y2="41" stroke="#27d0ab" strokeWidth="1.2" strokeOpacity="0.45"/>
+  <polygon points="443,38 450,41 443,44" fill="#27d0ab" fillOpacity="0.45"/>
+  <rect x="450" y="16" width="90" height="50" rx="7" fill="rgba(39,208,171,0.07)" stroke="#27d0ab" strokeWidth="1" strokeOpacity="0.35"/>
+  <text x="495" y="34" textAnchor="middle" fill="#27d0ab" fontFamily="monospace" fontSize="8" opacity="0.7">05</text>
+  <text x="495" y="50" textAnchor="middle" fill="#ffffff" fontFamily="monospace" fontSize="9" fontWeight="600">TDD</text>
+  <line x1="541" y1="41" x2="556" y2="41" stroke="#27d0ab" strokeWidth="1.2" strokeOpacity="0.45"/>
+  <polygon points="553,38 560,41 553,44" fill="#27d0ab" fillOpacity="0.45"/>
+  <rect x="560" y="16" width="90" height="50" rx="7" fill="rgba(39,208,171,0.07)" stroke="#27d0ab" strokeWidth="1" strokeOpacity="0.35"/>
+  <text x="605" y="34" textAnchor="middle" fill="#27d0ab" fontFamily="monospace" fontSize="8" opacity="0.7">06</text>
+  <text x="605" y="50" textAnchor="middle" fill="#ffffff" fontFamily="monospace" fontSize="9" fontWeight="600">Review</text>
+</svg>
+
+## Installing on Claude Code
+
+The fastest path is the official marketplace. Open Claude Code and run:
+
+```
+/plugin install superpowers@claude-plugins-official
+```
+
+That's it. If you prefer pulling directly from the Superpowers-maintained marketplace instead:
+
+```
+/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
+```
+
+Once installed, verify it's active by asking your agent:
+
+```
+Tell me about your superpowers
+```
+
+You'll get back a summary of the installed skills. If you don't, restart the session.
+
+## Installing on OpenCode
+
+OpenCode uses a config file instead of slash commands. Open your `opencode.json` — either the global one at `~/.config/opencode/opencode.json` or a project-level one at the root of your repo — and add:
+
+```json
+{
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"]
+}
+```
+
+Restart OpenCode. The plugin installs and registers all skills automatically on startup.
+
+If you want to lock to a specific version (recommended for team projects where you want consistent behavior):
+
+```json
+{
+  "plugin": ["superpowers@git+https://github.com/obra/superpowers.git#v5.0.3"]
+}
+```
+
+Same verification: ask the agent about its superpowers.
+
+### Upgrading from an older install
+
+If you installed Superpowers before it used the plugin system, clean up the old symlink-based setup first:
+
+```bash
+rm -f ~/.config/opencode/plugins/superpowers.js
+rm -rf ~/.config/opencode/skills/superpowers
+rm -rf ~/.config/opencode/superpowers
+```
+
+Then remove any `skills.paths` entries pointing to superpowers from your config before adding the new plugin line.
+
+## What a session actually looks like
+
+Here's what changes in practice. Say you ask the agent to add a user authentication flow.
+
+Before Superpowers, the agent starts writing `auth.ts` immediately.
+
+After Superpowers, the agent fires the `brainstorming` skill first. It checks the current project structure, then asks you one question at a time: What auth method — email/password, OAuth, passkeys? Should sessions be JWTs or server-side? Do you need role-based access? Each question has multiple choice options where possible so you're not writing essays.
+
+Once you've answered, it presents a design — architecture, components, data flow — section by section and asks for your sign-off on each. Only after you approve does it move forward.
+
+Then it writes a plan: a list of tasks, each estimated at 2–5 minutes, each with an exact file path and the verification step that confirms it's done. You can read the whole thing before a single line of code is written.
+
+Execution uses the `subagent-driven-development` skill: fresh agent instances handle each task in isolation so earlier context doesn't bleed into later decisions. After each task completes, a review agent checks the implementation against the spec.
+
+Throughout, the `test-driven-development` skill enforces the cycle: write a failing test, write the minimum code to pass it, refactor. The agent won't skip the red phase.
+
+When everything is done, `finishing-a-development-branch` walks you through merge options, cleans up worktrees, and flags anything left unresolved.
+
+## Worth it?
+
+The first session feels slower. You're answering questions instead of watching code appear. By the third session, you realize you've shipped three features without a single "wait, that's not what I meant" moment.
+
+The plugin is open source and actively maintained. Source and full docs at [github.com/obra/superpowers](https://github.com/obra/superpowers).
