@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { seoHead } from '#/lib/seo'
+import { seoHead } from '@/lib/seo'
 
 describe('seoHead', () => {
   test('uses provided title and description', () => {

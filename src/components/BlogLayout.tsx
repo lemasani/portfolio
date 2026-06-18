@@ -21,6 +21,7 @@ export default function BlogLayout({ children, showBack = true }: BlogLayoutProp
             <Link
               to="/blog"
               className="flex items-center gap-1.5 text-xs text-white/50 transition hover:text-white"
+              aria-label="Back to all blog posts"
             >
               <ArrowLeft size={13} />
               All posts

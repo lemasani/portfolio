@@ -1,4 +1,4 @@
-import type { MetaDescriptor } from '@tanstack/react-router'
+import type { DetailedHTMLProps, LinkHTMLAttributes, MetaHTMLAttributes } from 'react'
 
 const SITE_URL = 'https://lemasani.com'
 const DEFAULT_TITLE = 'Brian Lemasani'
@@ -12,9 +12,12 @@ interface SeoOptions {
   type?: 'website' | 'article'
 }
 
+type HeadMeta = DetailedHTMLProps<MetaHTMLAttributes<HTMLMetaElement>, HTMLMetaElement>
+type HeadLink = DetailedHTMLProps<LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement>
+
 export function seoHead({ title, description, path, type = 'website' }: SeoOptions): {
-  meta: MetaDescriptor[]
-  links: Array<{ rel: string; href: string }>
+  meta: HeadMeta[]
+  links: HeadLink[]
 } {
   const resolvedTitle = title ?? DEFAULT_TITLE
   const resolvedDescription = description ?? DEFAULT_DESCRIPTION

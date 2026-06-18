@@ -12,6 +12,16 @@ export interface Post {
   readingTime: number
 }
 
+export interface TocHeading {
+  id: string
+  text: string
+  level: 2 | 3
+}
+
+export interface PostDetails extends Post {
+  toc: TocHeading[]
+}
+
 export interface Project {
   id: string
   title: string

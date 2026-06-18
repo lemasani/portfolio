@@ -177,6 +177,7 @@ code {
   font-size: 0.875em;
 }
 .prose pre {
+  max-width: 100%;
   background: rgb(0 0 0 / 0.4);
   border: 1px solid rgb(39 208 171 / 0.25);
   border-radius: 0.75rem;
@@ -189,6 +190,25 @@ code {
   padding: 0;
   color: rgb(255 255 255 / 0.85);
 }
+.mdx-code-highlight pre {
+  max-width: 100%;
+  margin: 0;
+  padding: 1.25rem 3.5rem 1.25rem 1.25rem;
+  overflow-x: auto;
+  border: 1px solid rgb(39 208 171 / 0.25);
+  border-radius: 0.75rem;
+  background: rgb(0 0 0 / 0.4) !important;
+}
+.mdx-code-highlight code {
+  background: transparent;
+  padding: 0;
+}
+.prose img,
+.prose svg,
+.prose video {
+  max-width: 100%;
+  height: auto;
+}
 .prose ul,
 .prose ol {
   padding-left: 1.5rem;
@@ -196,8 +216,10 @@ code {
 }
 .prose li { margin-bottom: 0.4rem; }
 .prose blockquote {
-  border-left: 3px solid #008b6b;
-  padding-left: 1rem;
+  border: 1px solid rgb(0 139 107 / 0.35);
+  border-radius: 0.5rem;
+  background: rgb(0 139 107 / 0.1);
+  padding: 0.75rem 1rem;
   color: rgb(255 255 255 / 0.55);
   font-style: italic;
   margin: 1.5rem 0;
