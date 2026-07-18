@@ -3,6 +3,7 @@ import { Check, Copy } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { slugifyHeading } from '@/lib/blog'
 import { cn } from '@/lib/utils'
+import { Mermaid } from './Mermaid'
 
 type HeadingProps = ComponentPropsWithoutRef<'h1'>
 type ParagraphProps = ComponentPropsWithoutRef<'p'>
@@ -85,16 +86,27 @@ const code = ({ className, ...props }: CodeProps) => (
   />
 )
 
-const pre = ({ className, children, ...props }: PreProps) => {
+function getPreLanguage(children: ReactNode): string {
+  return typeof children === 'object' && children && 'props' in children
+    ? String((children as ReactElement<{ className?: string }>).props.className ?? '')
+        .replace('language-', '')
+        .trim()
+    : ''
+}
+
+const pre = ({ children, ...props }: PreProps) => {
+  if (getPreLanguage(children) === 'mermaid') {
+    return <Mermaid chart={getTextContent(children)} />
+  }
+
+  return <HighlightedPre {...props}>{children}</HighlightedPre>
+}
+
+const HighlightedPre = ({ className, children, ...props }: PreProps) => {
   const [copied, setCopied] = useState(false)
   const [highlightedHtml, setHighlightedHtml] = useState<string | null>(null)
   const code = getTextContent(children)
-  const language =
-    typeof children === 'object' && children && 'props' in children
-      ? String((children as ReactElement<{ className?: string }>).props.className ?? '')
-          .replace('language-', '')
-          .trim()
-      : ''
+  const language = getPreLanguage(children)
 
   useEffect(() => {
     let active = true
