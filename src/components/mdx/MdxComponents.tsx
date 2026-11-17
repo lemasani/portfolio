@@ -31,7 +31,7 @@ function getTextContent(value: ReactNode): string {
 }
 
 const h1 = ({ className, ...props }: HeadingProps) => (
-  <h1 className={cn('mb-4 mt-8 font-mono text-2xl font-bold text-white', className)} {...props} />
+  <h1 className={cn('type-display mb-4 mt-12 text-[2rem]', className)} {...props} />
 )
 const h2 = ({ className, children, id, ...props }: HeadingProps) => {
   const headingId = id ?? slugifyHeading(getTextContent(children))
@@ -40,7 +40,7 @@ const h2 = ({ className, children, id, ...props }: HeadingProps) => {
     <h2
       id={headingId}
       className={cn(
-        'mb-3 mt-8 scroll-mt-24 border-b border-white/10 pb-2 font-mono text-xl font-bold text-white',
+        'type-display mb-4 mt-14 scroll-mt-24 border-b-[3px] border-ink pb-2 text-[1.65rem]',
         className,
       )}
       {...props}
@@ -55,7 +55,7 @@ const h3 = ({ className, children, id, ...props }: HeadingProps) => {
   return (
     <h3
       id={headingId}
-      className={cn('mb-2 mt-6 scroll-mt-24 font-mono text-lg font-bold text-white', className)}
+      className={cn('mb-2 mt-9 scroll-mt-24 text-[1.3rem] font-extrabold leading-snug [font-stretch:105%]', className)}
       {...props}
     >
       {children}
@@ -64,12 +64,12 @@ const h3 = ({ className, children, id, ...props }: HeadingProps) => {
 }
 
 const p = ({ className, ...props }: ParagraphProps) => (
-  <p className={cn('mb-4 text-sm leading-relaxed text-white/70', className)} {...props} />
+  <p className={cn('mb-5', className)} {...props} />
 )
 
 const a = ({ className, ...props }: AnchorProps) => (
   <a
-    className={cn('text-[#27d0ab] underline underline-offset-4 hover:text-[#a9ffea]', className)}
+    className={cn('text-blue underline decoration-2 underline-offset-4 hover:decoration-orange', className)}
     target={props.href?.startsWith('http') ? '_blank' : undefined}
     rel={props.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
     {...props}
@@ -79,7 +79,7 @@ const a = ({ className, ...props }: AnchorProps) => (
 const code = ({ className, ...props }: CodeProps) => (
   <code
     className={cn(
-      'rounded bg-white/6 px-1.5 py-0.5 font-mono text-[0.875em] text-[#a9ffea]',
+      'rounded bg-wall-deep px-1.5 py-0.5 font-mono text-[0.86em] text-ink',
       className,
     )}
     {...props}
@@ -142,7 +142,7 @@ const HighlightedPre = ({ className, children, ...props }: PreProps) => {
       <button
         type="button"
         onClick={copyCode}
-        className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-md border border-white/10 bg-[#120f17]/90 text-white/45 opacity-100 transition hover:text-white sm:opacity-0 sm:group-hover:opacity-100"
+        className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-sm border-2 border-ink bg-placard text-ink opacity-100 transition hover:bg-ink hover:text-placard focus-visible:opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
         aria-label={copied ? 'Code copied' : 'Copy code'}
       >
         {copied ? <Check size={14} /> : <Copy size={14} />}
@@ -155,7 +155,7 @@ const HighlightedPre = ({ className, children, ...props }: PreProps) => {
       ) : (
         <pre
           className={cn(
-            'overflow-x-auto rounded-xl border border-[#27d0ab]/20 bg-black/40 p-5 pr-14',
+            'overflow-x-auto rounded-md border-2 border-ink bg-placard p-5 pr-14 text-[0.875rem] leading-relaxed text-ink',
             className,
           )}
           {...props}
@@ -168,11 +168,11 @@ const HighlightedPre = ({ className, children, ...props }: PreProps) => {
 }
 
 const ul = ({ className, ...props }: ListProps) => (
-  <ul className={cn('mb-4 list-disc pl-6 text-sm text-white/70', className)} {...props} />
+  <ul className={cn('mb-5 list-[square] pl-6', className)} {...props} />
 )
 
 const ol = ({ className, ...props }: ComponentPropsWithoutRef<'ol'>) => (
-  <ol className={cn('mb-4 list-decimal pl-6 text-sm text-white/70', className)} {...props} />
+  <ol className={cn('mb-5 list-decimal pl-6', className)} {...props} />
 )
 
 const li = ({ className, ...props }: ListItemProps) => (
@@ -182,7 +182,7 @@ const li = ({ className, ...props }: ListItemProps) => (
 const blockquote = ({ className, ...props }: BlockquoteProps) => (
   <blockquote
     className={cn(
-      'my-4 rounded-lg border border-[#008b6b]/35 bg-[#008b6b]/10 px-4 py-3 italic text-white/55',
+      'my-6 rounded-md border-2 border-ink bg-wall-deep px-5 py-4 text-ink',
       className,
     )}
     {...props}
@@ -190,7 +190,7 @@ const blockquote = ({ className, ...props }: BlockquoteProps) => (
 )
 
 const hr = ({ className, ...props }: ComponentPropsWithoutRef<'hr'>) => (
-  <hr className={cn('my-8 border-white/10', className)} {...props} />
+  <hr className={cn('my-10 border-0 border-t-[3px] border-ink', className)} {...props} />
 )
 
 async function highlightCode(code: string, language: string): Promise<string> {
@@ -201,7 +201,7 @@ async function highlightCode(code: string, language: string): Promise<string> {
     await Promise.all([
       import('shiki/core'),
       import('shiki/engine/javascript'),
-      import('shiki/themes/github-dark.mjs'),
+      import('shiki/themes/github-light.mjs'),
       Promise.resolve(loadedGrammar),
     ])
   const grammarInput = grammar.default
@@ -216,7 +216,7 @@ async function highlightCode(code: string, language: string): Promise<string> {
 
   return highlighter.codeToHtml(code, {
     lang,
-    theme: 'github-dark',
+    theme: 'github-light',
   })
 }
 

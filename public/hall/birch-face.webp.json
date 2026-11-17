@@ -1,0 +1,4 @@
+{
+  "prompt": "Origin: procedurally generated, no image model. Non-periodic birch-ply face for .ply-frame and .crate.\nThree ffmpeg lavfi grayscale random-noise layers, each geq lum='128+k*(random(1)-0.5)': 24x420 (k=110) upscaled bicubic to 1600x1000 + gblur sigma 2; 7x40 (k=120) upscaled + gblur sigma 30; 160x1000 (k=60) upscaled bicubic.\nBlended A*0.55+B*0.45 then *0.85 + C*0.15, mapped to birch: r=224+0.13*(v-128), g=203+0.14*(v-128), b=162+0.12*(v-128). Encoded with cwebp -q 82.\n",
+  "createdAt": "2026-11-17T15:46:54.173Z"
+}

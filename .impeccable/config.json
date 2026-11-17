@@ -1,0 +1,53 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/assigned.html"
+        ],
+        "createdAt": "2026-11-17T14:59:06.752Z",
+        "reason": "Claude: decision-round sketch fixture rendered as a skeleton, never shipped"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-gateboard.html"
+        ],
+        "createdAt": "2026-11-17T14:59:06.780Z",
+        "reason": "Claude: decision-round sketch fixture for an unchosen card, never shipped"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "helvetica neue",
+        "files": [
+          ".impeccable/mocks/decision/assigned.html"
+        ],
+        "createdAt": "2026-11-17T15:57:39.003Z",
+        "reason": "Claude: spent direction-round sketch fixture, never shipped; predates DESIGN.md"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "helvetica neue",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-11-17T15:57:39.029Z",
+        "reason": "Claude: spent direction-round sketch fixture, never shipped; predates DESIGN.md"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "helvetica neue",
+        "files": [
+          ".impeccable/mocks/decision/challenger-gateboard.html"
+        ],
+        "createdAt": "2026-11-17T15:57:39.049Z",
+        "reason": "Claude: spent direction-round sketch fixture, never shipped; predates DESIGN.md"
+      }
+    ]
+  }
+}

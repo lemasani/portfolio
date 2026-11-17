@@ -1,0 +1,4 @@
+{
+  "prompt": "Origin: procedurally generated, no image model. ffmpeg lavfi 1600x48, rgb24, geq per-pixel expression; laminated birch-ply edge for .ply-ledge.\nL=lt(mod(Y,12),7); r=if(L,228,190)+4*sin(X/53+Y*3)+6*(random(1)-0.5); g=if(L,207,160)+4*sin(X/53+Y*3)+6*(random(1)-0.5); b=if(L,166,112)+3*sin(X/53+Y*3)+5*(random(1)-0.5). Encoded with cwebp -q 85.\n",
+  "createdAt": "2026-11-17T15:41:55.895Z"
+}
