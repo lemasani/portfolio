@@ -72,7 +72,7 @@ export default function ExplodedBuilding() {
   return (
     <div ref={rootRef} className="grid items-center gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
       <div className="ply-frame">
-        <div className="relative flex h-[340px] items-center justify-center overflow-hidden rounded-[3px] bg-wall-deep [perspective:1800px] sm:h-[460px] lg:h-[520px]">
+        <div className="relative isolate flex h-[340px] items-center justify-center overflow-hidden rounded-[3px] bg-wall-deep [contain:paint] [perspective:1800px] sm:h-[460px] lg:h-[520px]">
           <div
             data-iso
             className="relative h-[150px] w-[210px] translate-y-14 [transform-style:preserve-3d] [transform:rotateX(58deg)_rotateZ(-40deg)] sm:h-[190px] sm:w-[270px]"

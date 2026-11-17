@@ -120,7 +120,7 @@ export default function ExhibitOne() {
 
       {/* Placard */}
       <div
-        className="placard flex flex-col gap-5 p-5 sm:p-8"
+        className="placard relative flex flex-col gap-5 p-5 sm:p-8"
         data-hall-intro=""
         data-intro-part="placard"
       >

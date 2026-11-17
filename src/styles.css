@@ -145,6 +145,18 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/*
+ * No horizontal scroll, ever. `clip` (unlike `hidden`) doesn't create a scroll
+ * container, so the sticky signage keeps working. Guards against 3D-transformed
+ * exhibits (WebKit doesn't clip them inside overflow:hidden) and mid-flight reveals.
+ */
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
