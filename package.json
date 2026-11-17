@@ -73,5 +73,15 @@
 		"vite-tsconfig-paths": "^5.1.4",
 		"vitest": "^4.1.12",
 		"wrangler": "^4.163.0"
+	},
+	"pnpm": {
+		"overrides": {
+			"katex": "^0.18.2",
+			"minimatch@10": "^11.0.1"
+		},
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"workerd"
+		]
 	}
 }
