@@ -10,6 +10,18 @@ interface ExhibitProps {
   flip?: boolean
 }
 
+const statusLabel: Record<Project['status'], string> = {
+  live: 'Live',
+  client: 'Live · client site',
+  experiment: 'Experiment',
+  launching: 'Store launch soon',
+}
+
+const captionFor = (project: Project) =>
+  project.screens?.phone
+    ? "Screens from the live site's public pages, desktop and phone."
+    : "A screen from the live site's public landing page."
+
 export default function Exhibit({ project, number, flip = false }: ExhibitProps) {
   const isThisSite = project.id === 'portfolio'
   const isSyncApp = project.id === 'watchlist'
@@ -32,12 +44,18 @@ export default function Exhibit({ project, number, flip = false }: ExhibitProps)
             {numeral}
           </span>
           <dl className="spec-slot" data-reveal="print">
-            <dt>Stack</dt>
+            <dt>Tags</dt>
             <dd>{project.tags.join(' · ')}</dd>
             <dt>Status</dt>
             <dd className="flex items-center gap-2">
-              <span className={cn('size-2.5 rounded-full', project.liveUrl ? 'bg-green' : 'bg-orange')} aria-hidden />
-              {project.liveUrl ? 'Live' : 'In the workshop'}
+              <span
+                className={cn(
+                  'size-2.5 rounded-full',
+                  project.status === 'live' || project.status === 'client' ? 'bg-green' : 'border-2 border-ink',
+                )}
+                aria-hidden
+              />
+              {statusLabel[project.status]}
             </dd>
           </dl>
         </div>
@@ -94,7 +112,7 @@ export default function Exhibit({ project, number, flip = false }: ExhibitProps)
 
       {project.screens && (
         <div className="mt-10">
-          <DisplayCase screens={project.screens} title={project.title} />
+          <DisplayCase screens={project.screens} title={project.title} caption={captionFor(project)} />
         </div>
       )}
 

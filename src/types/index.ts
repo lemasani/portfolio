@@ -32,6 +32,10 @@ export interface Project {
   githubUrl?: string
   liveUrl?: string
   featured: boolean
+  /** live: shipped and public · client: a live site for a client · experiment: a working prototype · launching: built, store release pending */
+  status: 'live' | 'client' | 'experiment' | 'launching'
+  /** One short line, used where a project shows up as a crate (launching). */
+  tagline?: string
   /** The exhibit's "What's going on?" panel: how it was built, in plain words. */
   howItWorks?: string
   /** Real screenshots for the exhibit's display case (paths under /public). */

@@ -9,7 +9,7 @@ type Screens = NonNullable<Project['screens']>
  * An exhibit's display case: the real thing on a plywood-framed stage.
  * The visitor pushes the button to swap which device is at the front.
  */
-export default function DisplayCase({ screens, title }: { screens: Screens; title: string }) {
+export default function DisplayCase({ screens, title, caption }: { screens: Screens; title: string; caption: string }) {
   const [front, setFront] = useState<'desktop' | 'phone'>('desktop')
   const phoneFront = front === 'phone'
 
@@ -24,7 +24,8 @@ export default function DisplayCase({ screens, title }: { screens: Screens; titl
           {/* Desktop browser */}
           <div
             className={cn(
-              'relative overflow-hidden rounded-md border-[3px] border-ink bg-placard shadow-[0_24px_40px_-24px_oklch(0.1_0.05_265/0.8)] transition-[transform,filter] duration-500 ease-[var(--ease-out-expo)] sm:mr-[18%]',
+              'relative overflow-hidden rounded-md border-[3px] border-ink bg-placard shadow-[0_24px_40px_-24px_oklch(0.1_0.05_265/0.8)] transition-[transform,filter] duration-500 ease-[var(--ease-out-expo)]',
+              screens.phone ? 'sm:mr-[18%]' : 'mx-auto max-w-[820px]',
               phoneFront ? 'z-[1] scale-[0.96] brightness-[0.82]' : 'z-[2]',
             )}
           >
@@ -66,8 +67,8 @@ export default function DisplayCase({ screens, title }: { screens: Screens; titl
         </div>
       </div>
 
-      {screens.phone && (
-        <figcaption className="flex flex-wrap items-center justify-between gap-3 rounded-b-[3px] border-t-[3px] border-ink bg-placard p-4 sm:px-5">
+      <figcaption className="flex flex-wrap items-center justify-between gap-3 rounded-b-[3px] border-t-[3px] border-ink bg-placard p-4 sm:px-5">
+        {screens.phone && (
           <button
             type="button"
             onClick={() => setFront(phoneFront ? 'desktop' : 'phone')}
@@ -77,11 +78,9 @@ export default function DisplayCase({ screens, title }: { screens: Screens; titl
             {phoneFront ? <Monitor size={18} strokeWidth={2.5} aria-hidden /> : <Smartphone size={18} strokeWidth={2.5} aria-hidden />}
             {phoneFront ? 'Bring the desktop forward' : 'Bring the phone forward'}
           </button>
-          <span className="text-[0.95rem] text-ink-soft">
-            Screens from the live site's public landing page, desktop and phone.
-          </span>
-        </figcaption>
-      )}
+        )}
+        <span className="text-[0.95rem] text-ink-soft">{caption}</span>
+      </figcaption>
     </figure>
   )
 }

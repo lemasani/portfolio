@@ -23,8 +23,9 @@ function Hall() {
   const mainRef = useRef<HTMLElement>(null)
   useHallReveals(mainRef)
 
-  // Featured work first; Exhibit 01 is the live sync demo, so the hall starts at 02.
-  const exhibits = [...projects].sort((a, b) => Number(b.featured) - Number(a.featured))
+  // Hall order is the data order. Exhibit 01 is the live sync demo, so the hall starts at 02.
+  // Projects still waiting on a store launch live in "Coming to the hall" as crates.
+  const exhibits = projects.filter((project) => project.status !== 'launching')
 
   return (
     <div id="top" className="min-h-screen bg-wall">
@@ -45,7 +46,7 @@ function Hall() {
                 The hall
               </h2>
               <p className="max-w-[46ch] text-[1.0625rem] leading-relaxed text-ink-soft">
-                Shipped work. Each exhibit has a placard, the thing itself, and a note on how it was built.
+                Shipped work, client work and experiments. Each exhibit has a placard, a note on how it was built, and the thing itself where it can be shown.
               </p>
             </div>
             <div className="flex flex-col gap-16 sm:gap-24">
