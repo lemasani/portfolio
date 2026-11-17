@@ -25,8 +25,10 @@ This is a **TanStack Start** SSR app (React 19) deployed to **Cloudflare Workers
 
 **UI components** — shadcn/ui components live in `src/components/ui/`. Add new ones with `pnpm shadcn add <component>`. These wrap Radix UI primitives.
 
-**Custom components** — `src/components/Beams.jsx` and `src/components/GlitchText.jsx` are creative/animated components used in the Hero. They have companion `.css` files for their keyframe animations.
+**Visual world: "Exhibit Hall"** — The site is a hands-on science museum: projects are numbered exhibits with placards. Product context lives in `PRODUCT.md`, the visual system in `DESIGN.md`, and the homepage direction contract in `.impeccable/surfaces/`. Tokens (wall, ink, enamel orange/blue/green, plywood) and type voices (`.type-name`, `.type-display`, `.type-label`, `.type-stencil`) are in `src/styles.css`. Homepage pieces live in `src/components/hall/`.
 
-**3D** — `@react-three/fiber` and `@react-three/drei` are available for Three.js scenes.
+**Motion** — GSAP (+ ScrollTrigger) via `getGsap()` in `src/lib/motion.ts`; scroll entrances are declared with `data-reveal="hinge|stamp|print|flip|rack"` and wired by `useHallReveals`. Content must stay visible without JS; every animation has a reduced-motion path.
+
+**3D** — `@react-three/fiber` and `@react-three/drei` power `SyncScene` (Exhibit 01) and `BellScene` (front desk). Three.js must stay client-only: load scenes with `React.lazy` inside `<ClientOnly>` so they never run during SSR on the Worker.
 
 **Deployment** — The app runs as a Cloudflare Worker. `wrangler.jsonc` configures the Worker. The SSR entry point is `@tanstack/react-start/server-entry`.

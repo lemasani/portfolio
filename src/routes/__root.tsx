@@ -15,6 +15,15 @@ export const Route = createRootRoute({
         name: 'viewport',
         content: 'width=device-width, initial-scale=1',
       },
+      { name: 'theme-color', content: '#eff0f3' },
+    ],
+    scripts: [
+      {
+        // Opt in to the hall-lights intro before first paint so animated
+        // elements don't flash visible, then hidden. CSS reveals them anyway
+        // after 2.4s if JS never runs the timeline.
+        children: `try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.dataset.motion='on'}}catch(e){}`,
+      },
     ],
     links: [
       {
@@ -28,7 +37,7 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
@@ -47,7 +56,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             ]}
           />
           <Scripts />
-          
         </>
       </body>
     </html>

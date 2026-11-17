@@ -19,21 +19,17 @@ function slugFromPath(path: string): string {
   return path.replace(/^.*\/(.+)\.mdx(?:\?.*)?$/, '$1')
 }
 
-function getPostModuleBySlug(slug: string): MdxModule | null {
-  const entry = Object.entries(modules).find(([path]) => slugFromPath(path) === slug)
-  if (!entry) return null
-  return entry[1]
+function getPostEntryBySlug(slug: string): [string, MdxModule] | null {
+  return Object.entries(modules).find(([path]) => slugFromPath(path) === slug) ?? null
 }
 
-function readingTime(text: string): number {
-  const words = text
-    .replace(/^---[\s\S]*?---/, '')
-    .replace(/<[^>]+>/g, ' ')
-    .trim()
-    .split(/\s+/)
-    .filter(Boolean)
+function getPostModuleBySlug(slug: string): MdxModule | null {
+  return getPostEntryBySlug(slug)?.[1] ?? null
+}
 
-  return Math.max(1, Math.ceil(words.length / 200))
+/** Minutes to read, from the word count remarkWordCount writes at compile time. */
+function readingTime(frontmatter: PostFrontmatter): number {
+  return Math.max(1, Math.ceil((frontmatter.wordCount ?? 0) / 200))
 }
 
 export function slugifyHeading(value: string): string {
@@ -50,7 +46,7 @@ function toPost(path: string, mod: MdxModule): Post {
   return {
     slug,
     frontmatter: mod.frontmatter,
-    readingTime: readingTime(String(mod.default)),
+    readingTime: readingTime(mod.frontmatter),
   }
 }
 
@@ -74,7 +70,7 @@ export function getPostBySlug(slug: string): PostDetails | null {
   return {
     slug,
     frontmatter: mod.frontmatter,
-    readingTime: readingTime(String(mod.default)),
+    readingTime: readingTime(mod.frontmatter),
     toc: [],
   }
 }

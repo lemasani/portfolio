@@ -11,6 +11,7 @@ import { cloudflare } from '@cloudflare/vite-plugin'
 import mdx from '@mdx-js/rollup'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
+import remarkWordCount from './src/lib/remark-word-count'
 
 /**
  * mermaid is only ever imported client-side (see src/components/mdx/Mermaid.tsx),
@@ -42,7 +43,8 @@ const config = defineConfig({
   plugins: [
     mermaidSsrStub(),
     mdx({
-      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      // remarkWordCount writes wordCount into the frontmatter for reading time.
+      remarkPlugins: [remarkFrontmatter, remarkWordCount, remarkMdxFrontmatter],
       providerImportSource: '@mdx-js/react',
     }),
     devtools(),

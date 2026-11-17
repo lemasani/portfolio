@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T15:54:15Z",
+  "title": "Design System: Lemasani",
+  "extensions": {
+    "colorMeta": {
+      "wall": { "role": "neutral", "displayName": "Gallery Wall", "canonical": "oklch(0.955 0.004 255)", "tonalRamp": ["oklch(0.15 0 255)", "oklch(0.27 0.001 255)", "oklch(0.39 0.002 255)", "oklch(0.51 0.002 255)", "oklch(0.63 0.003 255)", "oklch(0.75 0.003 255)", "oklch(0.86 0.004 255)", "oklch(0.955 0.004 255)"] },
+      "wall-deep": { "role": "neutral", "displayName": "Deep Wall", "canonical": "oklch(0.915 0.006 255)", "tonalRamp": ["oklch(0.15 0 255)", "oklch(0.27 0.002 255)", "oklch(0.39 0.003 255)", "oklch(0.51 0.004 255)", "oklch(0.63 0.005 255)", "oklch(0.75 0.005 255)", "oklch(0.86 0.006 255)", "oklch(0.915 0.006 255)"] },
+      "placard": { "role": "neutral", "displayName": "Placard White", "canonical": "oklch(0.995 0 0)", "tonalRamp": ["oklch(0.15 0 0)", "oklch(0.27 0 0)", "oklch(0.39 0 0)", "oklch(0.51 0 0)", "oklch(0.63 0 0)", "oklch(0.75 0 0)", "oklch(0.86 0 0)", "oklch(0.995 0 0)"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(0.17 0.012 260)", "tonalRamp": ["oklch(0.15 0.007 260)", "oklch(0.27 0.011 260)", "oklch(0.39 0.01 260)", "oklch(0.51 0.008 260)", "oklch(0.63 0.007 260)", "oklch(0.75 0.005 260)", "oklch(0.86 0.003 260)", "oklch(0.95 0.001 260)"] },
+      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "canonical": "oklch(0.36 0.014 260)", "tonalRamp": ["oklch(0.15 0.007 260)", "oklch(0.27 0.013 260)", "oklch(0.39 0.014 260)", "oklch(0.51 0.013 260)", "oklch(0.63 0.011 260)", "oklch(0.75 0.009 260)", "oklch(0.86 0.007 260)", "oklch(0.95 0.002 260)"] },
+      "rule": { "role": "neutral", "displayName": "Hairline", "canonical": "oklch(0.17 0.012 260 / 0.14)", "tonalRamp": ["oklch(0.17 0.012 260 / 0.04)", "oklch(0.17 0.012 260 / 0.08)", "oklch(0.17 0.012 260 / 0.14)", "oklch(0.17 0.012 260 / 0.2)", "oklch(0.17 0.012 260 / 0.3)", "oklch(0.17 0.012 260 / 0.45)", "oklch(0.17 0.012 260 / 0.6)", "oklch(0.17 0.012 260 / 0.8)"] },
+      "enamel-orange": { "role": "primary", "displayName": "Signal Enamel Orange", "canonical": "oklch(0.68 0.2 38)", "tonalRamp": ["oklch(0.15 0.055 38)", "oklch(0.27 0.122 38)", "oklch(0.39 0.151 38)", "oklch(0.51 0.175 38)", "oklch(0.63 0.195 38)", "oklch(0.75 0.192 38)", "oklch(0.86 0.173 38)", "oklch(0.95 0.065 38)"] },
+      "enamel-orange-deep": { "role": "primary", "displayName": "Fired Orange", "canonical": "oklch(0.58 0.19 36)", "tonalRamp": ["oklch(0.15 0.067 36)", "oklch(0.27 0.139 36)", "oklch(0.39 0.163 36)", "oklch(0.51 0.183 36)", "oklch(0.63 0.185 36)", "oklch(0.75 0.167 36)", "oklch(0.86 0.145 36)", "oklch(0.95 0.052 36)"] },
+      "enamel-blue": { "role": "secondary", "displayName": "Museum Blue", "canonical": "oklch(0.42 0.19 265)", "tonalRamp": ["oklch(0.15 0.088 265)", "oklch(0.27 0.17 265)", "oklch(0.39 0.188 265)", "oklch(0.51 0.18 265)", "oklch(0.63 0.159 265)", "oklch(0.75 0.134 265)", "oklch(0.86 0.109 265)", "oklch(0.95 0.036 265)"] },
+      "enamel-blue-deep": { "role": "secondary", "displayName": "Deep Museum Blue", "canonical": "oklch(0.33 0.16 266)", "tonalRamp": ["oklch(0.15 0.083 266)", "oklch(0.27 0.155 266)", "oklch(0.39 0.155 266)", "oklch(0.51 0.139 266)", "oklch(0.63 0.119 266)", "oklch(0.75 0.096 266)", "oklch(0.86 0.073 266)", "oklch(0.95 0.022 266)"] },
+      "on-blue-soft": { "role": "secondary", "displayName": "Stage Caption Blue", "canonical": "oklch(0.86 0.05 265)", "tonalRamp": ["oklch(0.15 0.006 265)", "oklch(0.27 0.019 265)", "oklch(0.39 0.027 265)", "oklch(0.51 0.034 265)", "oklch(0.63 0.041 265)", "oklch(0.75 0.046 265)", "oklch(0.86 0.05 265)", "oklch(0.95 0.02 265)"] },
+      "enamel-green": { "role": "tertiary", "displayName": "Exhibit Green", "canonical": "oklch(0.63 0.15 152)", "tonalRamp": ["oklch(0.15 0.047 152)", "oklch(0.27 0.101 152)", "oklch(0.39 0.121 152)", "oklch(0.51 0.138 152)", "oklch(0.63 0.15 152)", "oklch(0.75 0.138 152)", "oklch(0.86 0.123 152)", "oklch(0.95 0.045 152)"] },
+      "enamel-yellow": { "role": "tertiary", "displayName": "Label Yellow", "canonical": "oklch(0.86 0.16 92)", "tonalRamp": ["oklch(0.15 0.02 92)", "oklch(0.27 0.06 92)", "oklch(0.39 0.086 92)", "oklch(0.51 0.11 92)", "oklch(0.63 0.131 92)", "oklch(0.75 0.149 92)", "oklch(0.86 0.16 92)", "oklch(0.95 0.063 92)"] },
+      "ply": { "role": "tertiary", "displayName": "Birch Ply", "canonical": "oklch(0.82 0.065 78)", "tonalRamp": ["oklch(0.15 0.01 78)", "oklch(0.27 0.028 78)", "oklch(0.39 0.038 78)", "oklch(0.51 0.047 78)", "oklch(0.63 0.056 78)", "oklch(0.75 0.062 78)", "oklch(0.82 0.065 78)", "oklch(0.95 0.025 78)"] },
+      "ply-edge": { "role": "tertiary", "displayName": "Laminated Edge", "canonical": "oklch(0.66 0.075 66)", "tonalRamp": ["oklch(0.15 0.022 66)", "oklch(0.27 0.048 66)", "oklch(0.39 0.058 66)", "oklch(0.51 0.067 66)", "oklch(0.66 0.075 66)", "oklch(0.75 0.071 66)", "oklch(0.86 0.064 66)", "oklch(0.95 0.024 66)"] }
+    },
+    "typographyMeta": {
+      "name": { "displayName": "Name (Archivo 125%)", "purpose": "Brian Lemasani on the first placard and the LEMASANI wordmark. Only the name uses this voice." },
+      "display": { "displayName": "Display (Archivo 112%)", "purpose": "Section headings, exhibit titles, blog index and post titles." },
+      "title": { "displayName": "Title (Archivo 112%)", "purpose": "What's going on? panels, guide titles, crate names, the PUSH caption." },
+      "body": { "displayName": "Body", "purpose": "Placard copy at 38-60ch." },
+      "prose": { "displayName": "Prose", "purpose": "Blog article text, max 68ch." },
+      "label": { "displayName": "Label (Archivo 72% caps)", "purpose": "Signs, buttons, spec-slot terms, stage captions, dates, tags. Never an eyebrow above a heading." },
+      "numeral": { "displayName": "Exhibit Numeral (Big Shoulders Stencil)", "purpose": "Exhibit numbers and the empty numeral slot on crates. The only stencil use." },
+      "code": { "displayName": "Code (JetBrains Mono)", "purpose": "Code blocks and inline code only." }
+    },
+    "shadows": [
+      { "name": "frame-drop", "value": "inset 0 0 0 1.5px oklch(0.6 0.07 66 / 0.7), 0 18px 30px -18px oklch(0.17 0.012 260 / 0.45)", "purpose": "Every plywood frame; the inset line is the ply's cut edge." },
+      { "name": "crate-drop", "value": "inset 0 0 0 1.5px oklch(0.6 0.07 66 / 0.7), 0 10px 18px -12px oklch(0 0 0 / 0.6)", "purpose": "Crates on the dark Coming to the hall floor." },
+      { "name": "ledge-drop", "value": "0 10px 16px -10px oklch(0.17 0.012 260 / 0.5)", "purpose": "The plywood shelf under the literature rack." },
+      { "name": "push-skirt-rest", "value": "0 7px 0 0 var(--enamel-orange-deep), 0 12px 14px -4px oklch(0.17 0.012 260 / 0.55)", "purpose": "PUSH cap at rest." },
+      { "name": "push-skirt-hover", "value": "0 9px 0 0 var(--enamel-orange-deep), 0 14px 16px -4px oklch(0.17 0.012 260 / 0.55)", "purpose": "PUSH cap on hover." },
+      { "name": "push-skirt-pressed", "value": "0 1px 0 0 var(--enamel-orange-deep), 0 3px 5px -2px oklch(0.17 0.012 260 / 0.55)", "purpose": "PUSH cap while pressed." },
+      { "name": "key-skirt", "value": "0 4px 0 0 var(--enamel-orange-deep)", "purpose": "Orange key buttons at rest; 1px when pressed." },
+      { "name": "device-float", "value": "0 24px 40px -24px oklch(0.1 0.05 265 / 0.8)", "purpose": "Device screenshots standing on a blue stage." },
+      { "name": "sill-inset", "value": "inset 0 1px 0 oklch(0.17 0.012 260 / 0.25)", "purpose": "Top edge of the laminated sill under a frame." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "CSS transitions on display-case devices, rack cards and arrows (300-500ms)." },
+      { "name": "ease-out-quart", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Push-button cap travel: 140ms, 60ms on press." },
+      { "name": "gsap-out", "value": "expo.out", "purpose": "Default GSAP ease: hinge, flip, rack reveals and the hall-lights timeline." },
+      { "name": "gsap-quart", "value": "power4.out", "purpose": "Push button scaling in during hall lights." },
+      { "name": "gsap-stamp", "value": "power3.out", "purpose": "Numeral stamp, 0.5s from scale 1.9 and -9 to -10 degrees." },
+      { "name": "reveal-hinge", "value": "rotateX -72deg from top edge, perspective 1100px, 1.0s expo.out, once at top 86%", "purpose": "Placards swing down on their hinge." },
+      { "name": "reveal-stamp", "value": "scale 1.9, rotate -9deg, 0.5s power3.out, once at top 88%", "purpose": "Exhibit numerals stamp onto the wall." },
+      { "name": "reveal-print", "value": "clip-path inset(0 100% 0 0) to full, 0.45s steps(12), stagger 0.09s, once at top 92%", "purpose": "Spec-slot lines print left to right like a label maker." },
+      { "name": "reveal-flip", "value": "rotateX 92deg, perspective 700px, 0.7s expo.out, stagger 0.1s, once at top 84%", "purpose": "Crates flip over." },
+      { "name": "reveal-rack", "value": "yPercent -45, alternating rotate -7/6deg, 0.8s expo.out, stagger 0.09s, once at top 85%", "purpose": "Guides drop into the literature rack." },
+      { "name": "hall-lights", "value": "single timeline about 1.65s: signage drop, stage clip-path open from centre, brightness flicker, numeral stamp, placard hinge, lines rise, push scales in", "purpose": "First-viewport entrance, only when html[data-motion=on]." },
+      { "name": "intro-failsafe", "value": "2.4s", "purpose": "CSS reveals every data-hall-intro element after 2.4s if the timeline never runs." },
+      { "name": "exploded-scrub", "value": "pin from center center for +=130%, scrub 0.6, plates z i*16 to i*82, rotateZ -32deg", "purpose": "Exhibit 03 exploded view, desktop (min-width 1024px) with motion allowed only." },
+      { "name": "reduced-motion", "value": "transition and animation durations clamped to 0.01ms; GSAP reveals registered only under prefers-reduced-motion: no-preference; 3D scenes drop sway and travel", "purpose": "Every animation's reduced-motion path." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Push Button",
+      "kind": "button",
+      "refersTo": "push-button",
+      "description": "The exhibit's primary action: an orange cap in an ink well that physically depresses. One per exhibit at most.",
+      "html": "<button type=\"button\" class=\"ds-push\"><span class=\"ds-push__cap\">PUSH</span></button>",
+      "css": ".ds-push { position: relative; width: 120px; height: 120px; border-radius: 50%; border: 0; background: var(--ink); padding: 0; cursor: pointer; } .ds-push__cap { position: absolute; inset: 10%; border-radius: 50%; background: var(--enamel-orange); display: grid; place-items: center; color: var(--ink); font-family: 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 112%; font-weight: 900; font-size: 1.4rem; letter-spacing: 0.01em; transform: translateY(-7px); box-shadow: 0 7px 0 0 var(--enamel-orange-deep), 0 12px 14px -4px oklch(0.17 0.012 260 / 0.55); transition: transform 140ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 140ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-push:hover .ds-push__cap { transform: translateY(-9px); box-shadow: 0 9px 0 0 var(--enamel-orange-deep), 0 14px 16px -4px oklch(0.17 0.012 260 / 0.55); } .ds-push:active .ds-push__cap { transform: translateY(-1px); box-shadow: 0 1px 0 0 var(--enamel-orange-deep), 0 3px 5px -2px oklch(0.17 0.012 260 / 0.55); transition-duration: 60ms; } .ds-push:focus-visible { outline: 3px solid var(--enamel-blue); outline-offset: 6px; }"
+    },
+    {
+      "name": "Key Button",
+      "kind": "button",
+      "refersTo": "key-button",
+      "description": "Secondary enamel key with a skirt: Ring for service, Bring the phone forward.",
+      "html": "<button type=\"button\" class=\"ds-key\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10.268 21a2 2 0 0 0 3.464 0\"/><path d=\"M22 8c0-2.3-.8-4.3-2-6\"/><path d=\"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326\"/><path d=\"M4 2C2.8 3.7 2 5.7 2 8\"/></svg>Ring for service</button>",
+      "css": ".ds-key { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border: 0; border-radius: 0.4rem; background: var(--enamel-orange); color: var(--ink); font-family: 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 72%; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; font-size: 1rem; box-shadow: 0 4px 0 0 var(--enamel-orange-deep); cursor: pointer; transition: transform 150ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-key:hover { transform: translateY(-2px); } .ds-key:active { transform: translateY(2px); box-shadow: 0 1px 0 0 var(--enamel-orange-deep); } .ds-key:focus-visible { outline: 3px solid var(--enamel-blue); outline-offset: 3px; }"
+    },
+    {
+      "name": "Sign Button",
+      "kind": "button",
+      "refersTo": "sign-button",
+      "description": "Ink wayfinding sign used as a link button: All guides, GitHub, LinkedIn. Turns orange on hover.",
+      "html": "<a href=\"#\" class=\"ds-sign\">All guides<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-sign { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px; border-radius: 0.4rem; background: var(--ink); color: var(--placard); text-decoration: none; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 72%; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; font-size: 1.05rem; transition: background-color 150ms, color 150ms; } .ds-sign:hover { background: var(--enamel-orange); color: var(--ink); } .ds-sign:focus-visible { outline: 3px solid var(--enamel-blue); outline-offset: 3px; }"
+    },
+    {
+      "name": "Signage",
+      "kind": "nav",
+      "refersTo": "signage-strip",
+      "description": "Sticky site wayfinding: wordmark on the wall, arrowed signs on one ink strip; the active route is orange.",
+      "html": "<nav class=\"ds-signage\" aria-label=\"Site\"><a href=\"#\" class=\"ds-signage__mark\">LEMASANI</a><ul class=\"ds-signage__strip\"><li><a href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg>Exhibits</a></li><li><a href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14\"/><path d=\"m19 12-7 7-7-7\"/></svg>Contact</a></li><li><a href=\"#\" class=\"is-active\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>Writing</a></li></ul></nav>",
+      "css": ".ds-signage { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px 24px; background: var(--wall); border-bottom: 3px solid var(--ink); } .ds-signage__mark { font-family: 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 125%; font-weight: 900; letter-spacing: -0.025em; line-height: 0.9; font-size: 1.6rem; color: var(--ink); text-decoration: none; } .ds-signage__strip { display: flex; margin: 0; padding: 0; list-style: none; background: var(--ink); border-radius: 0.4rem; overflow: hidden; } .ds-signage__strip li { border-right: 1px solid oklch(0.995 0 0 / 0.2); } .ds-signage__strip li:last-child { border-right: 0; } .ds-signage__strip a { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; color: var(--placard); text-decoration: none; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 72%; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.95rem; transition: background-color 150ms, color 150ms; } .ds-signage__strip a:hover, .ds-signage__strip a.is-active { background: var(--enamel-orange); color: var(--ink); } .ds-signage__strip a:focus-visible { outline: 3px solid var(--enamel-blue); outline-offset: -3px; }"
+    },
+    {
+      "name": "Placard",
+      "kind": "card",
+      "refersTo": "placard",
+      "description": "The hall's content container: white, 3px ink border, 6px radius, flat.",
+      "html": "<article class=\"ds-placard\"><h3 class=\"ds-placard__title\">Yournextepisode</h3><p class=\"ds-placard__body\">An offline-first PWA for tracking movies, series and anime, with optional sync.</p><div class=\"ds-placard__panel\"><h4>What's going on?</h4><p>Changes are written on the device first, then synced up to the cloud.</p></div></article>",
+      "css": ".ds-placard { background: var(--placard); color: var(--ink); border: 3px solid var(--ink); border-radius: 6px; padding: 32px; display: flex; flex-direction: column; gap: 20px; max-width: 640px; font-family: 'Archivo Variable', 'Archivo', sans-serif; } .ds-placard__title { margin: 0; font-stretch: 112%; font-weight: 850; letter-spacing: -0.02em; line-height: 0.98; font-size: 2.6rem; } .ds-placard__body { margin: 0; font-size: 1.0625rem; line-height: 1.6; max-width: 60ch; } .ds-placard__panel { background: var(--wall-deep); border-radius: 0.4rem; padding: 20px; } .ds-placard__panel h4 { margin: 0; font-stretch: 112%; font-weight: 850; letter-spacing: -0.02em; font-size: 1.2rem; } .ds-placard__panel p { margin: 6px 0 0; font-size: 1rem; line-height: 1.6; }"
+    },
+    {
+      "name": "Plywood Frame and Stage",
+      "kind": "custom",
+      "refersTo": "ply-frame",
+      "description": "Birch-ply frame with a laminated sill, holding a blue stage where working things live; stencil numeral top left, condensed captions in the corners.",
+      "html": "<figure class=\"ds-frame\"><div class=\"ds-frame__stage\"><span class=\"ds-frame__numeral\" aria-hidden=\"true\">01</span><span class=\"ds-frame__caption ds-frame__caption--tr\">Cloud · Supabase</span><span class=\"ds-frame__caption ds-frame__caption--bl\">Your device</span></div></figure>",
+      "css": ".ds-frame { margin: 0; max-width: 560px; background: var(--ply) url('/hall/birch-face.webp') center / cover; padding: 12px; border-radius: 6px; box-shadow: inset 0 0 0 1.5px oklch(0.6 0.07 66 / 0.7), 0 18px 30px -18px oklch(0.17 0.012 260 / 0.45); } .ds-frame::after { content: ''; display: block; height: 8px; margin-top: 4px; border-radius: 2px; background: var(--ply-edge) url('/hall/birch-edge.webp') left center / auto 100% repeat-x; box-shadow: inset 0 1px 0 oklch(0.17 0.012 260 / 0.25); } .ds-frame__stage { position: relative; min-height: 300px; border-radius: 3px; background: var(--enamel-blue); overflow: hidden; } .ds-frame__numeral { position: absolute; left: 20px; top: 14px; font-family: 'Big Shoulders Stencil Variable', 'Archivo Variable', sans-serif; font-weight: 800; line-height: 0.82; letter-spacing: -0.01em; font-size: 6rem; color: var(--placard); } .ds-frame__caption { position: absolute; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 72%; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.9rem; color: var(--placard); } .ds-frame__caption--tr { right: 20px; top: 20px; } .ds-frame__caption--bl { left: 20px; bottom: 20px; }"
+    },
+    {
+      "name": "Spec Slot",
+      "kind": "custom",
+      "refersTo": "spec-slot",
+      "description": "Label-printer strip under a 3px ink rule: condensed caps terms, tabular values, live status dots.",
+      "html": "<dl class=\"ds-spec\"><dt>Network</dt><dd><span class=\"ds-spec__dot\" aria-hidden=\"true\"></span>Online</dd><dt>Queued</dt><dd>0 changes on the device</dd><dt>Synced</dt><dd>3 to the cloud</dd></dl>",
+      "css": ".ds-spec { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1.25rem; margin: 0; max-width: 420px; border-top: 3px solid var(--ink); padding-top: 0.75rem; font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 0.9375rem; color: var(--ink); } .ds-spec dt { font-stretch: 72%; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.8125rem; padding-top: 0.15em; } .ds-spec dd { margin: 0; display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; } .ds-spec__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--enamel-green); }"
+    },
+    {
+      "name": "Guide (Rack Card)",
+      "kind": "card",
+      "refersTo": "placard",
+      "description": "A blog guide standing in the literature rack: placard with an enamel band, slight tilt that straightens on hover.",
+      "html": "<a href=\"#\" class=\"ds-guide\"><span class=\"ds-guide__band\" aria-hidden=\"true\"></span><span class=\"ds-guide__body\"><span class=\"ds-guide__title\">Securely Hosting Apps on a VPS</span><span class=\"ds-guide__excerpt\">Taking a fresh VPS from default install to a locked-down box.</span><span class=\"ds-guide__meta\">Jul 18, 2026 · 12 min read</span></span></a>",
+      "css": ".ds-guide { display: flex; flex-direction: column; max-width: 360px; min-height: 260px; overflow: hidden; background: var(--placard); color: var(--ink); border: 3px solid var(--ink); border-radius: 6px; text-decoration: none; font-family: 'Archivo Variable', 'Archivo', sans-serif; transform: rotate(-1.5deg); transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-guide:hover { transform: rotate(0deg) translateY(-8px); } .ds-guide:focus-visible { outline: 3px solid var(--enamel-blue); outline-offset: 3px; } .ds-guide__band { display: block; height: 16px; background: var(--enamel-orange); } .ds-guide__body { display: flex; flex-direction: column; padding: 24px; } .ds-guide__title { font-stretch: 112%; font-weight: 850; letter-spacing: -0.02em; line-height: 1.08; font-size: 1.5rem; } .ds-guide:hover .ds-guide__title { text-decoration: underline; text-decoration-color: var(--enamel-orange); text-decoration-thickness: 3px; text-underline-offset: 4px; } .ds-guide__excerpt { margin-top: 12px; font-size: 0.98rem; line-height: 1.6; color: var(--ink-soft); } .ds-guide__meta { margin-top: 16px; font-stretch: 72%; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.85rem; color: var(--ink-soft); }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "tag-chip",
+      "description": "Blog index tag filter: 2px ink outline, ink fill when active.",
+      "html": "<div class=\"ds-chips\"><button type=\"button\" class=\"ds-chip\" aria-pressed=\"true\">security</button><button type=\"button\" class=\"ds-chip\" aria-pressed=\"false\">devops</button></div>",
+      "css": ".ds-chips { display: flex; gap: 8px; } .ds-chip { height: 36px; padding: 0 12px; border: 2px solid var(--ink); border-radius: 0.3rem; background: transparent; color: var(--ink); font-family: 'Archivo Variable', 'Archivo', sans-serif; font-stretch: 72%; font-weight: 650; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.85rem; cursor: pointer; transition: background-color 150ms, color 150ms; } .ds-chip:hover { background: var(--placard); } .ds-chip[aria-pressed='true'] { background: var(--ink); color: var(--placard); } .ds-chip:focus-visible { outline: 3px solid var(--enamel-blue); outline-offset: 3px; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "Reading-room search: placard white, 2px ink border, inset ink icon, blue focus ring.",
+      "html": "<label class=\"ds-search\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input type=\"search\" placeholder=\"Search the guides\" aria-label=\"Search the guides\"></label>",
+      "css": ".ds-search { position: relative; display: block; width: 380px; max-width: 100%; color: var(--ink); } .ds-search svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; } .ds-search input { width: 100%; height: 48px; padding: 0 16px 0 44px; border: 2px solid var(--ink); border-radius: 0.4rem; background: var(--placard); color: var(--ink); font-family: 'Archivo Variable', 'Archivo', sans-serif; font-size: 1rem; outline: none; } .ds-search input::placeholder { color: var(--ink-soft); } .ds-search input:focus-visible { outline: 3px solid var(--enamel-blue); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Exhibit Hall",
+    "overview": "The site is a hands-on science museum of Brian's work, lit like a daytime gallery. A neutral, faintly cool gallery wall carries everything; on it hang white placards with heavy black borders, birch-plywood frames around deep-blue stages, and enamel signage in signal orange, museum blue and exhibit green. Each project is an exhibit with a stencilled number, a label-printer spec strip, a placard, and something real to look at or push. Wayfinding is literal: a black sign strip with arrows, a \"Map\" on phones, a front desk with a bell, a reading room with a literature rack.\n\nThe world is physical and tactile but never costume. Depth comes from objects (plywood casts a soft drop shadow, a push button has a skirt and travels when pressed), not from decorative effects. Type is one family, Archivo, used at three widths: expanded black for names, wide heavy for display, condensed caps for labels. A stencil face appears only on exhibit numerals. Motion is mechanical and specific to each object: placards swing on a hinge, numerals stamp, spec strips print, crates flip, pamphlets drop into the rack. Every motion is opt-in, every scene degrades, and the reading room calms down so long technical writing stays comfortable.\n\nIt is a light theme by use scene (daylit desks, bright gallery light). It rejects the generic dev-portfolio template, the SaaS landing page, the hacker/terminal costume, and anything overdesigned enough to get in the way of the work or the writing.",
+    "keyCharacteristics": [
+      "Neutral cool gallery-wall ground, black ink, white placards with 3px ink borders.",
+      "Full enamel palette with fixed roles: orange acts, blue stages, green means live, plywood frames.",
+      "One family at three widths (125% / 112% / 72%), a stencil for exhibit numerals only, mono for code only.",
+      "Depth from physical objects only: plywood drop, button skirts, device shadows inside a stage.",
+      "Object-specific GSAP reveals, visible by default, skipped entirely under reduced motion.",
+      "Two Three.js scenes (sync demo, front-desk bell), lazy and client-only, paused off screen."
+    ],
+    "rules": [
+      { "name": "The Enamel Roles Rule", "body": "Orange is something you press or follow, blue is a stage or a link, green means live or synced, plywood is a frame. A hue never borrows another's job: no green buttons, no orange status-of-success, no plywood behind body text.", "section": "colors" },
+      { "name": "The Gallery Wall Rule", "body": "The ground is neutral and faintly cool (hue 255, chroma at or below 0.006). Warm cream, beige or paper tones are out; warmth in this world comes only from plywood.", "section": "colors" },
+      { "name": "The Ink-on-Enamel Rule", "body": "Text on orange, green, yellow and plywood is ink. Text on blue and on ink is placard white.", "section": "colors" },
+      { "name": "The Three Widths Rule", "body": "Archivo is set at exactly three widths with fixed jobs: 125% for names, 112% for display and titles, 72% for labels. Body stays at 100%. Do not introduce a second sans family.", "section": "typography" },
+      { "name": "The Stencil Is Wayfinding Rule", "body": "The stencil face is used only for exhibit numerals and the empty numeral slot on crates. It never sets a heading, a label or a word.", "section": "typography" },
+      { "name": "The No Eyebrow Rule", "body": "Headings stand alone. No small uppercase kicker or category label sits above any heading, anywhere on the site. Labels describe things on the wall (a stage, a spec, a date), never announce the heading below them.", "section": "typography" },
+      { "name": "The Physical Depth Rule", "body": "A shadow must belong to an object: a frame off the wall, a key's skirt, a device on a stage. Content surfaces (placards, cards, panels, prose) stay flat and take their edge from ink borders.", "section": "elevation" },
+      { "name": "The Skirt Rule", "body": "The solid offset under a key is the key's own side in a deeper shade of its own enamel, straight down, and it shortens when pressed. It is never a black diagonal offset block behind a card.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the ground on Gallery Wall (oklch(0.955 0.004 255)) and Deep Wall, and let plywood supply the only warmth.",
+      "Do give each enamel its role: orange to press or follow, blue to stage or link, green for live or synced, ply to frame, yellow for labels on dark.",
+      "Do set text on orange, green, yellow and ply in ink, and text on blue and ink in placard white.",
+      "Do build containers as placards: placard white, 3px ink border, 6px radius, no shadow.",
+      "Do put every live or visual demonstration inside a plywood frame on a stage, with condensed-caps captions in its corners.",
+      "Do use Archivo at its three widths (125% names, 112% display, 72% labels) and keep body copy at normal width.",
+      "Do number exhibits with the stencil face, and only exhibits.",
+      "Do give every pressable a physical response: a skirt in its own deeper enamel that shortens on press.",
+      "Do keep content visible without JavaScript: gate intros behind `data-motion=\"on\"` with the 2.4s failsafe, and register reveals only under `prefers-reduced-motion: no-preference`.",
+      "Do load Three.js and Mermaid lazily, client-only, and pause scenes off screen.",
+      "Do keep the reading room calm: 68ch prose at 1.72 line-height, 2px borders on code and quotes, no scroll-driven effects in article text."
+    ],
+    "donts": [
+      "Don't let the site read as a generic dev-portfolio template: no hero + about + project-card grid + skills badges + contact stack. Skills live in spec slots and the workshop inventory.",
+      "Don't let any surface read as a SaaS landing page: no gradient blobs, metric tiles, logo walls or \"trusted by\" strips.",
+      "Don't drift into hacker/terminal costume: no green-on-black text, fake CLI prompts, matrix rain, or monospace outside code.",
+      "Don't make anything overdesigned or hard to read: no effect may sit on top of copy, and no motion may delay reading.",
+      "Don't put an eyebrow or kicker label above any heading.",
+      "Don't use the stencil face for headings, labels or words.",
+      "Don't introduce warm cream, beige or paper grounds, or a dark theme mode. A single ink room such as \"Coming to the hall\" is part of the hall; a dark site is not.",
+      "Don't put shadows on placards, cards or panels, and don't use black diagonal offset shadows anywhere; the only solid offset is a key's own skirt.",
+      "Don't use green for buttons or orange for success; status colour follows the Enamel Roles Rule.",
+      "Don't use bounce or elastic easing; the hall moves with exponential ease-outs.",
+      "Don't ship an animation without a reduced-motion path, or render WebGL on the server."
+    ]
+  }
+}

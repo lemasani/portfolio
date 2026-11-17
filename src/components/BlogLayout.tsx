@@ -1,35 +1,45 @@
 import { Link } from '@tanstack/react-router'
 import { ArrowLeft } from 'lucide-react'
+import Signage from '@/components/hall/Signage'
 
 interface BlogLayoutProps {
   children: React.ReactNode
   showBack?: boolean
 }
 
+/** The reading room: same hall signage, a calmer floor for long reading. */
 export default function BlogLayout({ children, showBack = true }: BlogLayoutProps) {
   return (
-    <div className="min-h-screen bg-[#120f17]">
-      <header className="border-b border-white/10 bg-[#120f17]/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4 sm:px-8">
+    <div className="flex min-h-screen flex-col bg-wall">
+      <a
+        href="#main"
+        className="type-label sr-only z-[var(--z-toast)] rounded-md bg-ink px-4 py-3 text-placard focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+      >
+        Skip to content
+      </a>
+      <Signage />
+      <main id="main" className="mx-auto w-full max-w-[var(--hall-max)] flex-1 px-[var(--gutter)] pb-24 pt-8 sm:pt-12">
+        {showBack && (
           <Link
-            to="/"
-            className="font-mono text-sm font-bold tracking-[0.2em] text-white uppercase transition hover:text-[#27d0ab]"
+            to="/blog"
+            className="type-label mb-8 inline-flex items-center gap-2 text-[0.95rem] text-ink no-underline hover:text-blue"
           >
+            <ArrowLeft size={16} strokeWidth={2.5} aria-hidden />
+            Reading room
+          </Link>
+        )}
+        {children}
+      </main>
+      <footer className="border-t-[3px] border-ink">
+        <div className="mx-auto flex max-w-[var(--hall-max)] flex-wrap items-center justify-between gap-4 px-[var(--gutter)] py-6 text-[0.95rem]">
+          <Link to="/" className="type-name text-[1.15rem] text-ink no-underline">
             LEMASANI
           </Link>
-          {showBack && (
-            <Link
-              to="/blog"
-              className="flex items-center gap-1.5 text-xs text-white/50 transition hover:text-white"
-              aria-label="Back to all blog posts"
-            >
-              <ArrowLeft size={13} />
-              All posts
-            </Link>
-          )}
+          <a href="/blog/rss.xml" className="font-semibold text-ink underline">
+            RSS feed
+          </a>
         </div>
-      </header>
-      <main className="mx-auto max-w-5xl px-6 py-16 sm:px-8">{children}</main>
+      </footer>
     </div>
   )
 }
