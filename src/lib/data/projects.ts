@@ -38,6 +38,7 @@ export const projects: Project[] = [
     liveUrl: 'https://akilini.com',
     featured: true,
     status: 'live',
+    role: 'Lead engineer at Helga Digitals',
     howItWorks:
       'A pnpm monorepo: the React 19 learning app (TanStack Router and Query) and a separate marketing site, on a Java 21 / Spring Boot 4 API with PostgreSQL, Redis and Keycloak sign-in. Course videos run through their own Python transcoding service.',
     screens: {

@@ -44,6 +44,12 @@ export default function Exhibit({ project, number, flip = false }: ExhibitProps)
             {numeral}
           </span>
           <dl className="spec-slot" data-reveal="print">
+            {project.role && (
+              <>
+                <dt>Role</dt>
+                <dd>{project.role}</dd>
+              </>
+            )}
             <dt>Tags</dt>
             <dd>{project.tags.join(' · ')}</dd>
             <dt>Status</dt>
