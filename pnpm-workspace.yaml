@@ -3,3 +3,11 @@ allowBuilds:
   msw: false
   sharp: false
   workerd: true
+
+# Security pins for transitive dependencies whose parents haven't released a patched range yet.
+# Remove each once the parent package depends on a fixed version.
+overrides:
+  # mermaid@11 depends on katex ^0.16 (GHSA: prototype pollution can bypass trust restrictions)
+  katex: ^0.18.2
+  # ts-morph (via the shadcn CLI) depends on minimatch ^10 (DoS via globparts amplification)
+  minimatch@10: ^11.0.1
